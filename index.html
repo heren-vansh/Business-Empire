@@ -5522,6 +5522,19 @@
                 document.getElementById('admin-portal-view').style.display = 'none';
             },
 
+            // નવું ફંક્શન: Department પ્રમાણે Category લાવવા માટે
+            renderCategoryOptions() {
+                const deptId = document.getElementById('prod-gender')?.value;
+                const catSelect = document.getElementById('prod-category');
+                if (!catSelect) return;
+                
+                // પસંદ કરેલા Department ની જ કેટેગરી ફિલ્ટર કરો
+                let relevantCats = DB.categories.filter(c => c.dept === deptId);
+                if(relevantCats.length === 0) relevantCats = DB.categories; // જો ખાલી હોય તો બધી બતાવો
+                
+                catSelect.innerHTML = relevantCats.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+            },
+
             // --- COLOR SWATCHES IN PRODUCT FORM ---
             addColor(hex, name = '') {
                 if (!hex) return;
@@ -5961,6 +5974,7 @@
                     document.getElementById('prod-edit-id').value = p.id;
                     document.getElementById('prod-title').value = p.title;
                     document.getElementById('prod-gender').value = p.gender;
+                    this.renderCategoryOptions(); // કેટેગરી લોડ કરો
                     document.getElementById('prod-category').value = p.category;
                     document.getElementById('prod-price').value = p.price;
                     document.getElementById('prod-mrp').value = p.mrp;
@@ -5968,18 +5982,27 @@
                     document.getElementById('prod-stock').value = p.stock;
                     document.getElementById('prod-sizes').value = (p.sizes || []).join(', ');
                     this.currentImages = p.images && p.images.length > 0 ? [...p.images] : [p.img];
-                    this.currentColors = p.colors && p.colors.length > 0 ? [...p.colors] : ['#dc2626', '#111827'];
+                    this.currentColors = p.colors && p.colors.length > 0 ? [...p.colors] : [];
                     document.getElementById('prod-desc').value = p.desc || '';
                 } else {
                     title.innerText = "Add Luxury Garment (Colors & Photos)";
                     document.getElementById('prod-edit-id').value = '';
                     document.getElementById('prod-title').value = '';
-                    this.currentImages = [
-                        'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800',
-                        'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800'
-                    ];
-                    this.currentColors = ['#dc2626', '#111827'];
+                    this.renderCategoryOptions(); // નવી પ્રોડક્ટ માટે કેટેગરી લોડ કરો
+                    
+                    // નવી પ્રોડક્ટ એડ કરતી વખતે બધું ખાલી (0) કરી નાખો
+                    document.getElementById('prod-price').value = '';
+                    document.getElementById('prod-mrp').value = '';
+                    document.getElementById('prod-cost').value = '';
+                    document.getElementById('prod-stock').value = '';
+                    document.getElementById('prod-sizes').value = '';
+                    document.getElementById('prod-desc').value = '';
+                    this.currentImages = [];
+                    this.currentColors = [];
                 }
+
+                // જ્યારે Department બદલાય ત્યારે Category પણ ઓટોમેટિક બદલાવી જોઈએ
+                document.getElementById('prod-gender').onchange = () => this.renderCategoryOptions();
 
                 this.renderSelectedColors();
                 this.renderSelectedImages();
@@ -6335,6 +6358,7 @@
                 StoreApp.showToast("Sample luxury catalog restored!");
             }
         };
+        
 
         document.addEventListener('DOMContentLoaded', () => {
             StoreApp.init();
