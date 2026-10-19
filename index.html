@@ -5329,6 +5329,9 @@
                             this.saveData();
                             this.updatePatronUI();
                             this.showToast(`Welcome, ${user.displayName || 'Patron'}!`);
+                            if (DB.currentUser.email === 'vanshtanmay9@gmail.com') {
+                                AdminPortal.open();
+                            }
                         })
                         .catch((err) => {
                             console.warn("Firebase Auth Notice:", err);
@@ -5357,11 +5360,24 @@
                 this.saveData();
                 this.updatePatronUI();
                 this.showToast("Google Authentication Verified (Demo Patron: Tanmay Vansh)");
+                if (DB.currentUser.email === 'vanshtanmay9@gmail.com') {
+                    AdminPortal.open();
+                }
             },
             updatePatronUI() {
                 const label = document.getElementById('google-user-label');
                 if (label && DB.currentUser) {
                     label.innerText = DB.currentUser.name ? DB.currentUser.name.split(' ')[0] : 'Patron';
+                    
+                    // એડમિન માટે મેનુ બટન ઓન કરવાનું કોડ
+                    const adminMenu = document.getElementById('menu-admin-item');
+                    if (adminMenu) {
+                        if (DB.currentUser.email === 'vanshtanmay9@gmail.com') {
+                            adminMenu.style.display = 'block'; 
+                        } else {
+                            adminMenu.style.display = 'none'; 
+                        }
+                    }
                 }
             },
             restoreSession() {
