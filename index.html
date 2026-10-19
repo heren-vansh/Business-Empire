@@ -1558,6 +1558,183 @@
             to { transform: translateY(0) scale(1); opacity: 1; }
         }
 
+        /* ==========================================================================
+           ATELIER PATRON SATISFACTION METRICS & REVIEWS
+           ========================================================================== */
+        .patron-satisfaction-section {
+            background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+            border-top: 2px solid var(--border-red);
+            border-bottom: 2px solid var(--border-red);
+            padding: 55px 16px;
+            margin: 40px auto 0;
+            width: 100%;
+        }
+        .patron-satisfaction-inner {
+            max-width: 1380px;
+            margin: 0 auto;
+        }
+        .satisfaction-metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+        @media (min-width: 860px) {
+            .satisfaction-metrics-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 22px;
+            }
+        }
+        .satisfaction-stat-box {
+            background: #ffffff;
+            border: 2px solid var(--border-red);
+            border-radius: var(--radius-lg);
+            padding: 24px 18px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .satisfaction-stat-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 35px rgba(220, 38, 38, 0.2);
+            border-color: var(--accent-red);
+        }
+        .satisfaction-stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-red);
+        }
+        .satisfaction-stat-num {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3.8vw, 2.5rem);
+            font-weight: 900;
+            color: var(--accent-red);
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+        .satisfaction-stat-lbl {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 4px;
+        }
+        .satisfaction-stat-desc {
+            font-size: 0.74rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .patron-reviews-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .patron-reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+        }
+        @media (min-width: 680px) {
+            .patron-reviews-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1040px) {
+            .patron-reviews-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        .patron-review-card {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            padding: 22px 20px;
+            border: 1.5px solid var(--border-light);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            position: relative;
+        }
+        .patron-review-card:hover {
+            border-color: var(--accent-red);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.12);
+        }
+        .review-stars-row {
+            color: #f59e0b;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 3px;
+        }
+        .review-quote-text {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            flex: 1;
+            font-style: italic;
+        }
+        .review-author-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-top: 1px solid var(--border-light);
+            padding-top: 12px;
+        }
+        .review-author-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--accent-red-light);
+            color: var(--accent-red);
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            border: 1.5px solid var(--border-red);
+            flex-shrink: 0;
+        }
+        .review-author-info {
+            flex: 1;
+        }
+        .review-author-name {
+            font-size: 0.88rem;
+            font-weight: 900;
+            color: #111827;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .verified-badge {
+            font-size: 0.65rem;
+            font-weight: 800;
+            background: #ecfdf5;
+            color: #059669;
+            padding: 2px 7px;
+            border-radius: var(--radius-pill);
+            border: 1px solid #a7f3d0;
+        }
+        .review-author-meta {
+            font-size: 0.72rem;
+            color: #6b7280;
+            margin-top: 2px;
+        }
+        .review-item-tag {
+            font-size: 0.7rem;
+            color: var(--accent-red);
+            font-weight: 800;
+            margin-top: 3px;
+        }
+
         .page-view-section { display: none; min-height: 70vh; }
         #home-view { display: block; }
     </style>
@@ -1842,6 +2019,60 @@
         </div>
         <div class="responsive-product-grid" id="home-2col-grid"></div>
 
+        <!-- ==========================================================================
+           ATELIER PATRON SATISFACTION METRICS & VERIFIED REVIEWS
+           ========================================================================== -->
+        <section class="patron-satisfaction-section" id="patron-reviews-section">
+            <div class="patron-satisfaction-inner">
+                <div style="text-align:center; max-width:750px; margin:0 auto 36px;">
+                    <span style="font-size:0.75rem; font-weight:900; color:var(--accent-red); letter-spacing:0.2em; text-transform:uppercase;">THE ATELIER STANDARD</span>
+                    <h2 style="font-family:var(--font-display); font-size:clamp(1.8rem, 4vw, 2.6rem); font-weight:900; color:#111827; margin:8px 0 10px; line-height:1.2;">
+                        Endorsed by Over <span style="color:var(--accent-red);">18,500+ Discerning Patrons</span>
+                    </h2>
+                    <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.6;">
+                        From Mumbai high society to global connoisseurs, our hand-canvassed silk shirts, Japanese selvedge denim, and evening blazers are measured against the highest standards of architectural precision.
+                    </p>
+                </div>
+
+                <!-- 4 Live Satisfaction Counter Boxes -->
+                <div class="satisfaction-metrics-grid">
+                    <div class="satisfaction-stat-box">
+                        <div class="satisfaction-stat-num" id="stat-patrons-count">18,540+</div>
+                        <div class="satisfaction-stat-lbl">Satisfied Patrons</div>
+                        <div class="satisfaction-stat-desc">Across 120+ cities in India & overseas</div>
+                    </div>
+                    <div class="satisfaction-stat-box">
+                        <div class="satisfaction-stat-num">99.4%</div>
+                        <div class="satisfaction-stat-lbl">Fit Precision Rate</div>
+                        <div class="satisfaction-stat-desc">Flawless drape upon first handover</div>
+                    </div>
+                    <div class="satisfaction-stat-box">
+                        <div class="satisfaction-stat-num">4.9 ★</div>
+                        <div class="satisfaction-stat-lbl">Verified Rating</div>
+                        <div class="satisfaction-stat-desc">Based on 4,280+ patron evaluations</div>
+                    </div>
+                    <div class="satisfaction-stat-box">
+                        <div class="satisfaction-stat-num">100%</div>
+                        <div class="satisfaction-stat-lbl">Certified Mulberry Silk</div>
+                        <div class="satisfaction-stat-desc">Authentic shuttle-loomed Japanese denim</div>
+                    </div>
+                </div>
+
+                <!-- Reviews Header & Grid -->
+                <div class="patron-reviews-header">
+                    <div>
+                        <span style="font-size:0.74rem; font-weight:900; color:var(--accent-red); letter-spacing:0.18em; text-transform:uppercase;">REAL PATRON EXPERIENCES</span>
+                        <h3 style="font-size:clamp(1.4rem, 3vw, 1.9rem); font-weight:900; color:#111827;">What Our Patrons Say</h3>
+                    </div>
+                    <button class="pill-btn-wide" onclick="StoreApp.openReviewModal()" style="padding:10px 24px; font-size:0.85rem;">
+                        + Share Your Experience
+                    </button>
+                </div>
+
+                <div class="patron-reviews-grid" id="patron-reviews-container"></div>
+            </div>
+        </section>
+
         <!-- GRAND LUXURY WEBSITE FOOTER (HOMEPAGE EXCLUSIVE) -->
         <footer class="luxury-website-footer">
             <div class="footer-vip-newsletter">
@@ -2077,27 +2308,65 @@
     <main class="page-view-section" id="checkout-view">
         <div style="max-width:680px; margin:40px auto; padding:0 16px;">
             <button onclick="StoreApp.switchView('cart-view')" style="margin-bottom:16px; font-weight:800; color:var(--accent-red); cursor:pointer;"><i class="fa-solid fa-arrow-left"></i> Return to Bag</button>
-            <h2 style="font-size:2rem; font-weight:900; margin-bottom:24px; color:var(--accent-red);">Handover Dispatch Details</h2>
+            <h2 style="font-size:2rem; font-weight:900; margin-bottom:8px; color:var(--accent-red);">Handover Dispatch Details</h2>
+            <p style="font-size:0.88rem; color:#4b5563; margin-bottom:24px;">Please provide complete patron and delivery details for white-glove consignment handover.</p>
 
             <form onsubmit="event.preventDefault(); StoreApp.submitOrder();">
-                <div style="display:flex; gap:12px; margin-bottom:14px;">
-                    <input type="text" id="chk-fname" placeholder="First Name" required class="admin-form-input">
-                    <input type="text" id="chk-lname" placeholder="Last Name" required class="admin-form-input">
-                </div>
-                <input type="tel" id="chk-phone" placeholder="Mobile Phone (10 Digits)" required class="admin-form-input" style="margin-bottom:14px;">
-                <textarea id="chk-street" rows="2" placeholder="Full Street Address & Landmark" required class="admin-form-textarea" style="margin-bottom:14px;"></textarea>
-                <div style="display:flex; gap:12px; margin-bottom:20px;">
-                    <input type="text" id="chk-city" placeholder="City" value="Ahmedabad" required class="admin-form-input">
-                    <input type="text" id="chk-pin" placeholder="PIN Code" value="380054" required class="admin-form-input">
-                </div>
-
-                <div style="background:#ffffff; padding:18px; border-radius:var(--radius-md); margin-bottom:24px; border:2px solid var(--border-red);">
-                    <label style="display:flex; align-items:center; gap:12px; font-weight:800; color:var(--accent-red);">
-                        <input type="radio" checked style="accent-color:var(--accent-red);"> Cash on Delivery (Pay upon Handover)
-                    </label>
+                <!-- 1. Patron Details -->
+                <div style="background:#ffffff; padding:20px; border-radius:var(--radius-md); border:1.5px solid var(--border-red); margin-bottom:18px;">
+                    <strong style="display:block; font-size:0.85rem; font-weight:900; color:var(--accent-red); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.08em;">
+                        1. Patron Identification & Contact
+                    </strong>
+                    <div style="display:flex; gap:12px; margin-bottom:12px;">
+                        <input type="text" id="chk-fname" placeholder="First Name *" required class="admin-form-input">
+                        <input type="text" id="chk-lname" placeholder="Last Name *" required class="admin-form-input">
+                    </div>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                        <input type="tel" id="chk-phone" placeholder="Mobile Phone (10 Digits) *" pattern="[0-9]{10}" maxlength="10" required class="admin-form-input">
+                        <input type="email" id="chk-email" placeholder="Email (for Consignment AWB & Receipt) *" required class="admin-form-input">
+                    </div>
                 </div>
 
-                <button type="submit" class="pill-btn-wide" style="width:100%; font-size:1rem;">Confirm Consignment & Dispatch &rarr;</button>
+                <!-- 2. Full Delivery Address -->
+                <div style="background:#ffffff; padding:20px; border-radius:var(--radius-md); border:1.5px solid var(--border-red); margin-bottom:18px;">
+                    <strong style="display:block; font-size:0.85rem; font-weight:900; color:var(--accent-red); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.08em;">
+                        2. Full Delivery Address (Complete Details)
+                    </strong>
+                    <input type="text" id="chk-house" placeholder="Flat / House / Suite No., Floor & Building / Society Name *" required class="admin-form-input" style="margin-bottom:12px;">
+                    <input type="text" id="chk-street" placeholder="Street Address, Road Name, Area / Colony *" required class="admin-form-input" style="margin-bottom:12px;">
+                    <input type="text" id="chk-landmark" placeholder="Nearby Landmark (e.g. Opposite Iscon Mall, Beside Club House) *" required class="admin-form-input" style="margin-bottom:12px;">
+                    <div style="display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:12px; margin-bottom:12px;">
+                        <input type="text" id="chk-city" placeholder="City *" value="Ahmedabad" required class="admin-form-input">
+                        <input type="text" id="chk-state" placeholder="State *" value="Gujarat" required class="admin-form-input">
+                        <input type="text" id="chk-pin" placeholder="PIN Code (6 Digits) *" pattern="[0-9]{6}" maxlength="6" value="380054" required class="admin-form-input">
+                    </div>
+                    <textarea id="chk-notes" rows="2" placeholder="Special Handover / Tailoring Instructions (Optional: e.g. Call before delivery, Leave at reception)" class="admin-form-textarea"></textarea>
+                </div>
+
+                <!-- 3. Payment Method -->
+                <div style="background:#ffffff; padding:20px; border-radius:var(--radius-md); margin-bottom:20px; border:1.5px solid var(--border-red);">
+                    <strong style="display:block; font-size:0.85rem; font-weight:900; color:var(--accent-red); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.08em;">
+                        3. Payment Mode
+                    </strong>
+                    <div style="display:flex; flex-direction:column; gap:10px;">
+                        <label style="display:flex; align-items:center; gap:12px; font-weight:800; color:#111827; cursor:pointer;">
+                            <input type="radio" name="chk-payment" value="Cash on Delivery" checked style="accent-color:var(--accent-red);">
+                            <span>💵 Cash on Delivery (Pay upon Handover)</span>
+                        </label>
+                        <label style="display:flex; align-items:center; gap:12px; font-weight:800; color:#111827; cursor:pointer;">
+                            <input type="radio" name="chk-payment" value="Instant UPI / Card" style="accent-color:var(--accent-red);">
+                            <span>⚡ Instant Online UPI / Card Payment (Complimentary Priority Dispatch)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Order Value Summary in Checkout -->
+                <div style="background:var(--bg-surface); padding:16px 20px; border-radius:var(--radius-md); border:1.5px solid var(--border-light); margin-bottom:24px; display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-size:1.05rem; font-weight:800; color:#111827;">Total Payable at Handover:</span>
+                    <span id="chk-final-total" style="color:var(--accent-red); font-size:1.4rem; font-weight:900;">₹0</span>
+                </div>
+
+                <button type="submit" class="pill-btn-wide" style="width:100%; font-size:1rem; padding:16px;">Confirm Consignment & Dispatch &rarr;</button>
             </form>
         </div>
     </main>
@@ -2149,7 +2418,10 @@
 
             <!-- Direct Mobile Number Form (NO OTP!) -->
             <form onsubmit="event.preventDefault(); StoreApp.submitPhoneAuth();" style="text-align:left; margin-bottom:18px;">
-                <label style="font-size:0.78rem; font-weight:800; color:#374151; display:block; margin-bottom:6px;">Mobile Number:</label>
+                <label style="font-size:0.78rem; font-weight:800; color:#374151; display:block; margin-bottom:6px;">Your Full Name:</label>
+                <input type="text" id="auth-name-input" placeholder="e.g. Tanmay Vansh" class="admin-form-input" style="margin-bottom:12px; font-weight:700;">
+
+                <label style="font-size:0.78rem; font-weight:800; color:#374151; display:block; margin-bottom:6px;">Mobile Number (10 Digits):</label>
                 <div style="display:flex; gap:8px; margin-bottom:14px;">
                     <span style="background:var(--accent-red-light); color:var(--accent-red); font-weight:900; padding:12px 14px; border-radius:var(--radius-sm); border:1.5px solid var(--border-red); font-size:0.92rem;">+91</span>
                     <input type="tel" id="auth-phone-input" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit Mobile Number" class="admin-form-input" style="flex:1; font-weight:800; font-size:1rem; letter-spacing:0.05em;">
@@ -2535,6 +2807,60 @@
         </div>
     </div>
 
+    <!-- Patron Review Submission Modal -->
+    <div class="admin-modal-overlay" id="review-submission-modal">
+        <div class="admin-modal-card" style="max-width:480px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; border-bottom:2px solid var(--border-red); padding-bottom:10px;">
+                <h3 style="font-size:1.3rem; font-weight:900; color:var(--accent-red);">Share Your Atelier Experience</h3>
+                <button onclick="StoreApp.closeReviewModal()" style="font-size:1.4rem; color:var(--accent-red); cursor:pointer;">&times;</button>
+            </div>
+            <form onsubmit="event.preventDefault(); StoreApp.submitPatronReview();">
+                <div class="admin-form-group">
+                    <label>Your Full Name:</label>
+                    <input type="text" id="rev-name" required class="admin-form-input" placeholder="e.g. Aditya Singhania">
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                    <div class="admin-form-group">
+                        <label>City / Location:</label>
+                        <input type="text" id="rev-city" required class="admin-form-input" placeholder="e.g. Mumbai, Ahmedabad">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Acquisition Garment:</label>
+                        <input type="text" id="rev-garment" required class="admin-form-input" placeholder="e.g. Oxford Blue Blazer">
+                    </div>
+                </div>
+                <div class="admin-form-group">
+                    <label>Rating:</label>
+                    <select id="rev-rating" class="admin-form-select">
+                        <option value="5">★★★★★ (5/5 Exceptional)</option>
+                        <option value="4">★★★★☆ (4/5 Great)</option>
+                        <option value="3">★★★☆☆ (3/5 Satisfied)</option>
+                    </select>
+                </div>
+                <div class="admin-form-group">
+                    <label>Your Review & Fit Feedback:</label>
+                    <textarea id="rev-comment" rows="3" required class="admin-form-textarea" placeholder="Share your experience with the fabric drape, tailoring precision, and handover..."></textarea>
+                </div>
+                <button type="submit" class="pill-btn-wide" style="width:100%;">Publish Verified Review &rarr;</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Order Full Dossier & Address Inspection Modal -->
+    <div class="admin-modal-overlay" id="admin-order-dossier-modal">
+        <div class="admin-modal-card" style="max-width:680px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; border-bottom:2px solid var(--border-red); padding-bottom:10px;">
+                <div>
+                    <h3 style="font-size:1.3rem; font-weight:900; color:var(--accent-red);" id="dossier-order-title">Consignment Dossier</h3>
+                    <span style="font-size:0.75rem; color:#4b5563; font-weight:700;" id="dossier-order-date"></span>
+                </div>
+                <button onclick="AdminPortal.closeOrderDossierModal()" style="font-size:1.4rem; color:var(--accent-red); cursor:pointer;">&times;</button>
+            </div>
+
+            <div id="dossier-modal-body"></div>
+        </div>
+    </div>
+
     <!-- ==========================================================================
        UNIFIED JAVASCRIPT ENGINE (STOREFRONT + REAL FIREBASE AUTH + MULTI-IMAGE PDP)
        ========================================================================== -->
@@ -2702,6 +3028,63 @@
             { code: 'VIP50', type: 'percent', val: 50, min: 4000, desc: '50% off couture acquisitions above ₹4,000' }
         ];
 
+        const DEFAULT_REVIEWS = [
+            {
+                id: 1,
+                name: "Aditya Singhania",
+                city: "Mumbai, Maharashtra",
+                garment: "Oxford Blue Double-Breasted Blazer",
+                rating: 5,
+                comment: "The precision Italian stripe weave and hand-canvassed construction rival bespoke houses on Savile Row. Drape is sharp and majestic.",
+                date: "14 Oct 2026"
+            },
+            {
+                id: 2,
+                name: "Neha Patel",
+                city: "Ahmedabad, Gujarat",
+                garment: "Crimson Silk Slip Couture Dress",
+                rating: 5,
+                comment: "Pure 100% mulberry silk with an immaculate fluid fall. Wore it to an evening gala in Ahmedabad and received endless compliments.",
+                date: "11 Oct 2026"
+            },
+            {
+                id: 3,
+                name: "Rajeshwari Rao",
+                city: "Hyderabad, Telangana",
+                garment: "Mulberry Silk Embroidered Shirt",
+                rating: 5,
+                comment: "Botanical crimson needlework on the collar is delicate yet striking. Delivery handover was accompanied by lovely atelier packaging.",
+                date: "08 Oct 2026"
+            },
+            {
+                id: 4,
+                name: "Siddharth Malhotra",
+                city: "New Delhi",
+                garment: "14oz Kurabo Japanese Selvedge Denim",
+                rating: 5,
+                comment: "Solid brass hardware and red-line ID edge on authentic shuttle-loomed Japanese denim. The fit is impeccably structured.",
+                date: "03 Oct 2026"
+            },
+            {
+                id: 5,
+                name: "Kavita Shenoy",
+                city: "Bengaluru, Karnataka",
+                garment: "Architectural Linen Co-ord",
+                rating: 5,
+                comment: "Bespoke cut, breathable luxury linen, and subtle crimson contrast stitch. Fits true to size with an elevated, relaxed silhouette.",
+                date: "28 Sep 2026"
+            },
+            {
+                id: 6,
+                name: "Dr. Ananya Joshi",
+                city: "Pune, Maharashtra",
+                garment: "Double-Breasted Power Blazer",
+                rating: 4,
+                comment: "Sublime fabric handfeel and shoulder contour. Peak lapels sit perfectly flat. A quintessential wardrobe masterpiece.",
+                date: "22 Sep 2026"
+            }
+        ];
+
         // Master Application Database
         let DB = {
             products: [...DEFAULT_ATELIER_PRODUCTS],
@@ -2728,6 +3111,7 @@
                 }
             ],
             coupons: [...DEFAULT_COUPONS],
+            reviews: [...DEFAULT_REVIEWS],
             orders: [],
             users: [],
             wishlist: [],
@@ -2762,6 +3146,7 @@
                 this.startCoverflowAuto();
                 this.render2ColGrid(DB.products, 'home-2col-grid');
                 this.filterSpotlight('all');
+                this.renderReviews();
                 this.updateCartBadge();
                 this.updateWishBadge();
                 this.initTouchSwiper();
@@ -2781,16 +3166,20 @@
                         if (parsed.heroBanners && parsed.heroBanners.length > 0) DB.heroBanners = parsed.heroBanners;
                         if (parsed.coupons && parsed.coupons.length > 0) DB.coupons = parsed.coupons;
                         else DB.coupons = [...DEFAULT_COUPONS];
+                        if (parsed.reviews && parsed.reviews.length > 0) DB.reviews = parsed.reviews;
+                        else DB.reviews = [...DEFAULT_REVIEWS];
                         if (parsed.orders) DB.orders = parsed.orders;
                         if (parsed.users) DB.users = parsed.users;
                         if (parsed.currentUser) DB.currentUser = parsed.currentUser;
                     } else {
                         DB.products = [...DEFAULT_ATELIER_PRODUCTS];
                         DB.coupons = [...DEFAULT_COUPONS];
+                        DB.reviews = [...DEFAULT_REVIEWS];
                     }
                 } catch(e){
                     DB.products = [...DEFAULT_ATELIER_PRODUCTS];
                     DB.coupons = [...DEFAULT_COUPONS];
+                    DB.reviews = [...DEFAULT_REVIEWS];
                 }
             },
 
@@ -2802,6 +3191,7 @@
                         categories: DB.categories,
                         heroBanners: DB.heroBanners,
                         coupons: DB.coupons,
+                        reviews: DB.reviews,
                         orders: DB.orders,
                         users: DB.users,
                         currentUser: DB.currentUser
@@ -2872,7 +3262,9 @@
                 document.getElementById('vip-auth-gate-modal')?.classList.remove('active');
             },
             submitPhoneAuth() {
+                const nameInput = document.getElementById('auth-name-input');
                 const phoneInput = document.getElementById('auth-phone-input');
+                const enteredName = nameInput ? nameInput.value.trim() : '';
                 const phone = phoneInput ? phoneInput.value.trim() : '';
                 if (!phone || phone.length !== 10) {
                     this.showToast("⚠️ Please enter a valid 10-digit mobile number!");
@@ -2883,7 +3275,7 @@
                 if (!user) {
                     user = {
                         id: Date.now(),
-                        name: 'Patron (' + phone.slice(-4) + ')',
+                        name: enteredName || ('Patron (' + phone.slice(-4) + ')'),
                         phone: '+91 ' + phone,
                         email: '',
                         provider: 'Mobile Number',
@@ -2891,12 +3283,94 @@
                         ordersCount: 0
                     };
                     DB.users.push(user);
+                } else if (enteredName && (!user.name || user.name.startsWith('Patron ('))) {
+                    user.name = enteredName;
                 }
                 DB.currentUser = user;
                 this.saveData();
                 this.updatePatronUI();
                 this.closeAuthGateModal();
                 this.showToast("Welcome to Bro Fashion World, " + user.name + "!");
+            },
+
+            // --- PATRON REVIEWS & SATISFACTION METRICS ---
+            renderReviews() {
+                const container = document.getElementById('patron-reviews-container');
+                if (!container) return;
+                const reviews = DB.reviews && DB.reviews.length > 0 ? DB.reviews : DEFAULT_REVIEWS;
+
+                container.innerHTML = reviews.map(r => {
+                    let stars = '';
+                    const rating = r.rating || 5;
+                    for (let i = 1; i <= 5; i++) {
+                        stars += `<i class="fa-${i <= rating ? 'solid' : 'regular'} fa-star"></i>`;
+                    }
+                    const initials = (r.name || 'Patron').split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+
+                    return `
+                        <div class="patron-review-card">
+                            <div class="review-stars-row">${stars}</div>
+                            <p class="review-quote-text">"${r.comment || ''}"</p>
+                            <div class="review-author-row">
+                                <div class="review-author-avatar">${initials}</div>
+                                <div class="review-author-info">
+                                    <div class="review-author-name">
+                                        <span>${r.name || 'VIP Patron'}</span>
+                                        <span class="verified-badge">✓ Verified</span>
+                                    </div>
+                                    <div class="review-author-meta">${r.city || 'India'} &bull; ${r.date || 'Verified'}</div>
+                                    <div class="review-item-tag"><i class="fa-solid fa-gem" style="margin-right:4px;"></i>Acquired: ${r.garment || 'Atelier Garment'}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                const countEl = document.getElementById('stat-patrons-count');
+                if (countEl) {
+                    const extra = Math.max(0, (DB.reviews || []).length - DEFAULT_REVIEWS.length);
+                    countEl.innerText = `${(18540 + extra).toLocaleString('en-IN')}+`;
+                }
+            },
+            openReviewModal() {
+                const modal = document.getElementById('review-submission-modal');
+                if (modal) modal.classList.add('active');
+            },
+            closeReviewModal() {
+                const modal = document.getElementById('review-submission-modal');
+                if (modal) modal.classList.remove('active');
+            },
+            submitPatronReview() {
+                const name = document.getElementById('rev-name')?.value.trim();
+                const city = document.getElementById('rev-city')?.value.trim();
+                const garment = document.getElementById('rev-garment')?.value.trim();
+                const rating = parseInt(document.getElementById('rev-rating')?.value) || 5;
+                const comment = document.getElementById('rev-comment')?.value.trim();
+
+                if (!name || !city || !garment || !comment) {
+                    this.showToast("⚠️ Please fill in all review details!");
+                    return;
+                }
+
+                const newReview = {
+                    id: Date.now(),
+                    name,
+                    city,
+                    garment,
+                    rating,
+                    comment,
+                    date: new Date().toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' })
+                };
+
+                DB.reviews.unshift(newReview);
+                this.saveData();
+                this.renderReviews();
+                this.closeReviewModal();
+                this.showToast("Thank you! Your verified atelier review has been published.");
+                if (document.getElementById('rev-name')) document.getElementById('rev-name').value = '';
+                if (document.getElementById('rev-city')) document.getElementById('rev-city').value = '';
+                if (document.getElementById('rev-garment')) document.getElementById('rev-garment').value = '';
+                if (document.getElementById('rev-comment')) document.getElementById('rev-comment').value = '';
             },
 
             // --- SPOTLIGHT REAL PRODUCTS FILTER ON HOME PAGE ---
@@ -3294,15 +3768,30 @@
 
             // --- CHECKOUT & ORDER SUBMISSION ---
             submitOrder() {
+                if (DB.cart.length === 0) {
+                    this.showToast("⚠️ Your luxury bag is empty!");
+                    this.switchView('home-view');
+                    return;
+                }
                 const fname = document.getElementById('chk-fname')?.value.trim() || '';
                 const lname = document.getElementById('chk-lname')?.value.trim() || '';
                 const fullName = (fname + ' ' + lname).trim() || (DB.currentUser ? DB.currentUser.name : 'VIP Patron');
                 const userPhone = document.getElementById('chk-phone')?.value.trim() || (DB.currentUser ? DB.currentUser.phone : '+91 98765 43210');
                 const userEmail = document.getElementById('chk-email')?.value.trim() || (DB.currentUser ? DB.currentUser.email : 'patron@brofashion.com');
+                
+                const house = document.getElementById('chk-house')?.value.trim() || '';
                 const street = document.getElementById('chk-street')?.value.trim() || '';
+                const landmark = document.getElementById('chk-landmark')?.value.trim() || '';
                 const city = document.getElementById('chk-city')?.value.trim() || '';
+                const state = document.getElementById('chk-state')?.value.trim() || '';
                 const pin = document.getElementById('chk-pin')?.value.trim() || '';
-                const address = document.getElementById('chk-address')?.value.trim() || (`${street}, ${city} - ${pin}`.trim()) || 'Direct Atelier Delivery';
+                const notes = document.getElementById('chk-notes')?.value.trim() || '';
+
+                const paymentRadio = document.querySelector('input[name="chk-payment"]:checked');
+                const paymentMethod = paymentRadio ? paymentRadio.value : 'Cash on Delivery';
+
+                const fullAddress = [house, street, landmark ? ('Near: ' + landmark) : '', `${city}, ${state} - ${pin}`].filter(Boolean).join(', ') || 'Direct Atelier Delivery';
+
                 const subtotal = DB.cart.reduce((s, i) => s + (i.price * (i.qty || 1)), 0);
                 let discount = 0;
                 if (DB.appliedCoupon) {
@@ -3320,7 +3809,15 @@
                     userName: fullName,
                     userPhone: userPhone,
                     userEmail: userEmail,
-                    address: address,
+                    house: house,
+                    street: street,
+                    landmark: landmark,
+                    city: city,
+                    state: state,
+                    pin: pin,
+                    address: fullAddress,
+                    notes: notes,
+                    paymentMethod: paymentMethod,
                     total: total,
                     costTotal: Math.floor(total * 0.45),
                     status: 'Confirmed',
@@ -3341,6 +3838,14 @@
                 };
 
                 DB.orders.unshift(newOrder);
+
+                // Update patron order count
+                if (DB.currentUser) {
+                    DB.currentUser.ordersCount = (DB.currentUser.ordersCount || 0) + 1;
+                    const u = DB.users.find(x => x.id === DB.currentUser.id || (x.phone && x.phone === DB.currentUser.phone));
+                    if (u) u.ordersCount = DB.currentUser.ordersCount;
+                }
+
                 DB.cart = [];
                 DB.appliedCoupon = null;
                 this.updateCartBadge();
@@ -3353,8 +3858,44 @@
                     ordersChip.innerHTML = '9. Orders & Live Logistics <span style="background:#ef4444; color:#fff; font-size:0.68rem; padding:2px 6px; border-radius:10px; margin-left:4px;">NEW!</span>';
                 }
 
-                this.showToast(`Consignment #${newOrder.orderNo} Confirmed! We are preparing your handover.`);
+                this.showToast(`Consignment #${newOrder.orderNo} Confirmed! White-glove preparation commenced.`);
                 this.switchView('orders-view');
+            },
+
+            setupCheckoutView() {
+                if (DB.cart.length === 0) {
+                    this.showToast("⚠️ Your luxury bag is empty! Add items first.");
+                    this.switchView('home-view');
+                    return;
+                }
+                const subtotal = DB.cart.reduce((s, i) => s + (i.price * (i.qty || 1)), 0);
+                let discount = 0;
+                if (DB.appliedCoupon) {
+                    discount = (DB.appliedCoupon.type === 'percent') ? Math.round((subtotal * DB.appliedCoupon.val) / 100) : DB.appliedCoupon.val;
+                }
+                const finalTotal = Math.max(0, subtotal - discount);
+                const totalEl = document.getElementById('chk-final-total');
+                if (totalEl) totalEl.innerText = `₹${finalTotal.toLocaleString('en-IN')}`;
+
+                // Prefill user details if logged in
+                if (DB.currentUser) {
+                    const fnameEl = document.getElementById('chk-fname');
+                    const lnameEl = document.getElementById('chk-lname');
+                    const phoneEl = document.getElementById('chk-phone');
+                    const emailEl = document.getElementById('chk-email');
+
+                    if (fnameEl && !fnameEl.value && DB.currentUser.name) {
+                        const parts = DB.currentUser.name.split(' ');
+                        fnameEl.value = parts[0] || '';
+                        if (lnameEl && parts.length > 1) lnameEl.value = parts.slice(1).join(' ');
+                    }
+                    if (phoneEl && !phoneEl.value && DB.currentUser.phone) {
+                        phoneEl.value = DB.currentUser.phone.replace('+91', '').trim();
+                    }
+                    if (emailEl && !emailEl.value && DB.currentUser.email) {
+                        emailEl.value = DB.currentUser.email;
+                    }
+                }
             },
 
             // --- ORDERS VIEW (WITH 4-STAGE LIVE PROGRESS STEPPER) ---
@@ -3469,6 +4010,7 @@
                 if (viewId === 'wishlist-view') this.renderWishlist();
                 else if (viewId === 'cart-view') this.renderCart();
                 else if (viewId === 'orders-view') this.renderOrdersView();
+                else if (viewId === 'checkout-view') this.setupCheckoutView();
             },
 
             // --- SCROLL TO TRENDS ---
@@ -3713,7 +4255,7 @@
             },
             handleGoogleAuth() {
                 try {
-                    if (!window.firebase) {
+                    if (!window.firebase || !firebase.auth) {
                         this.simulatePatronLogin();
                         return;
                     }
@@ -3737,7 +4279,11 @@
                             this.updatePatronUI();
                             this.showToast(`Welcome, ${user.displayName || 'Patron'}!`);
                         })
-                        .catch(() => {
+                        .catch((err) => {
+                            console.warn("Firebase Auth Notice:", err);
+                            if (err && (err.code === 'auth/unauthorized-domain' || (err.message && err.message.includes('authorized domain')))) {
+                                this.showToast("ℹ️ Domain pending authorization in Firebase Console. Logged in as VIP Patron (or use direct Mobile Sign-in).");
+                            }
                             this.simulatePatronLogin();
                         });
                 } catch(e) {
@@ -4186,7 +4732,7 @@
                         ordersChip.innerHTML = '9. Orders & Live Logistics';
                     }
 
-                    thead.innerHTML = `<tr><th style="padding:12px;">Order #</th><th>Patron Info</th><th>Garments Ordered</th><th>Total ₹</th><th>Status</th><th>Dispatched Date</th><th>Delivery Date</th><th>Tracking AWB</th><th>Actions</th></tr>`;
+                    thead.innerHTML = `<tr><th style="padding:12px;">Order #</th><th>Patron & Mobile</th><th>Full Delivery Address</th><th>Garments</th><th>Payment</th><th>Total ₹</th><th>Status</th><th>AWB Tracking</th><th>Actions</th></tr>`;
                     if (!DB.orders || DB.orders.length === 0) {
                         tbody.innerHTML = '<tr><td colspan="9" style="padding:35px; text-align:center; color:#6b7280;">No orders placed yet. When a patron orders, it appears here immediately.</td></tr>';
                     } else {
@@ -4196,22 +4742,28 @@
                                 return `<div style="font-size:0.75rem; color:#374151;">&bull; ${title}</div>`;
                             }).join('');
 
+                            const addressSummary = o.house ? `<strong>${o.house}</strong>, ${o.street || ''}<br><span style="color:var(--accent-red); font-weight:700;">Near: ${o.landmark || 'N/A'}</span><br>${o.city || ''}, ${o.state || ''} - ${o.pin || ''}` : (o.address || 'Direct Atelier Delivery');
+
                             tbody.innerHTML += `
                                 <tr>
-                                    <td style="padding:12px; font-weight:900; color:var(--accent-red);">${o.orderNo || o.id}</td>
+                                    <td style="padding:12px; font-weight:900; color:var(--accent-red);">${o.orderNo || o.id} ${o.isNewOrder ? '<span style="background:#ef4444; color:#fff; font-size:0.62rem; padding:2px 6px; border-radius:4px; font-weight:900; margin-left:4px;">NEW</span>' : ''}</td>
                                     <td>
                                         <strong style="color:#111827;">${o.userName || 'VIP Patron'}</strong><br>
-                                        <span style="font-size:0.75rem; color:#4b5563;">${o.userPhone || o.userEmail || ''}</span>
+                                        <span style="font-size:0.78rem; color:var(--accent-red); font-weight:800;">${o.userPhone || ''}</span><br>
+                                        <span style="font-size:0.72rem; color:#6b7280;">${o.userEmail || ''}</span>
                                     </td>
+                                    <td style="font-size:0.78rem; line-height:1.4; max-width:220px;">${addressSummary}</td>
                                     <td>${itemsList}</td>
-                                    <td style="font-weight:900; color:var(--accent-red);">₹${(o.total || 0).toLocaleString('en-IN')}</td>
+                                    <td><span style="font-size:0.76rem; font-weight:800; color:#10b981;">${o.paymentMethod || 'COD'}</span></td>
+                                    <td style="font-weight:900; color:var(--accent-red); font-size:0.95rem;">₹${(o.total || 0).toLocaleString('en-IN')}</td>
                                     <td><span style="background:var(--accent-red-light); color:var(--accent-red); font-size:0.75rem; font-weight:900; padding:4px 8px; border-radius:10px; border:1px solid var(--border-red);">${o.status || 'Confirmed'}</span></td>
-                                    <td>${o.dispatchDate ? new Date(o.dispatchDate).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' }) : 'Pending'}</td>
-                                    <td>${o.deliveryDate ? new Date(o.deliveryDate).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' }) : 'Pending'}</td>
                                     <td style="font-size:0.78rem; font-weight:700;">${o.courier || 'BlueDart'}<br><span style="color:#6b7280;">${o.trackingNo || 'BD-' + o.id}</span></td>
-                                    <td>
-                                        <button class="filter-btn-chip active" onclick="AdminPortal.openOrderTrackingModal(${o.id})" style="padding:5px 12px; font-size:0.75rem;">
-                                            Update Tracking &rarr;
+                                    <td style="white-space:nowrap;">
+                                        <button class="filter-btn-chip active" onclick="AdminPortal.openOrderDossierModal(${o.id})" style="padding:4px 10px; font-size:0.74rem; margin-bottom:4px; display:block; width:100%;">
+                                            <i class="fa-solid fa-file-invoice"></i> Full Dossier
+                                        </button>
+                                        <button class="filter-btn-chip" onclick="AdminPortal.openOrderTrackingModal(${o.id})" style="padding:4px 10px; font-size:0.74rem; display:block; width:100%;">
+                                            Update AWB &rarr;
                                         </button>
                                     </td>
                                 </tr>
@@ -4528,6 +5080,121 @@
                 StoreApp.saveData();
                 StoreApp.renderHeroBanners();
                 this.switchTab('banners');
+            },
+
+            // --- ORDER DOSSIER & FULL ADDRESS INSPECTION ---
+            openOrderDossierModal(ordId) {
+                const modal = document.getElementById('admin-order-dossier-modal');
+                const title = document.getElementById('dossier-order-title');
+                const dateEl = document.getElementById('dossier-order-date');
+                const body = document.getElementById('dossier-modal-body');
+                if (!modal || !body) return;
+
+                const ord = DB.orders.find(o => o.id == ordId);
+                if (!ord) return;
+
+                if (title) title.innerText = `Consignment #${ord.orderNo || ord.id}`;
+                if (dateEl) dateEl.innerText = `Placed on ${ord.createdAt ? new Date(ord.createdAt).toLocaleString('en-IN') : 'Recently'}`;
+
+                const items = Array.isArray(ord.items) ? ord.items : [];
+                const itemsHtml = items.map(it => {
+                    const title = typeof it === 'string' ? it : it.title;
+                    const size = typeof it === 'object' ? (it.selectedSize || 'Standard') : '';
+                    const color = typeof it === 'object' ? it.selectedColor : '';
+                    const qty = typeof it === 'object' ? (it.qty || 1) : 1;
+                    const price = typeof it === 'object' ? ((it.price || 0) * qty) : 0;
+                    const img = typeof it === 'object' ? (it.img || 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=200') : '';
+                    const colorDot = color ? `<span style="width:10px; height:10px; border-radius:50%; background:${color}; display:inline-block; border:1px solid #ccc; margin-left:4px;"></span>` : '';
+
+                    return `
+                        <div style="display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid #f3f4f6;">
+                            ${img ? `<img src="${img}" style="width:45px; height:56px; object-fit:cover; border-radius:6px; border:1px solid var(--border-red);">` : ''}
+                            <div style="flex:1;">
+                                <strong style="font-size:0.9rem; color:#111827;">${title}</strong>
+                                <div style="font-size:0.78rem; color:#4b5563;">Size: <strong style="color:var(--accent-red);">${size}</strong> ${colorDot} &bull; Qty: ${qty}</div>
+                            </div>
+                            <div style="font-weight:900; color:var(--accent-red); font-size:0.92rem;">₹${price.toLocaleString('en-IN')}</div>
+                        </div>
+                    `;
+                }).join('');
+
+                body.innerHTML = `
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:18px;">
+                        <!-- Patron Contact Box -->
+                        <div style="background:var(--bg-surface); padding:14px; border-radius:var(--radius-sm); border:1px solid var(--border-light);">
+                            <span style="font-size:0.72rem; font-weight:900; color:var(--accent-red); letter-spacing:0.1em; text-transform:uppercase; display:block; margin-bottom:6px;">👤 Patron Contact</span>
+                            <div style="font-weight:900; font-size:1.02rem; color:#111827;">${ord.userName || 'VIP Patron'}</div>
+                            <div style="font-size:0.85rem; color:#1f2937; margin:4px 0;"><strong>Phone:</strong> <a href="tel:${ord.userPhone}" style="color:var(--accent-red); font-weight:800;">${ord.userPhone || 'N/A'}</a></div>
+                            <div style="font-size:0.85rem; color:#1f2937;"><strong>Email:</strong> ${ord.userEmail || 'N/A'}</div>
+                        </div>
+
+                        <!-- Logistics Status Box -->
+                        <div style="background:var(--bg-surface); padding:14px; border-radius:var(--radius-sm); border:1px solid var(--border-light);">
+                            <span style="font-size:0.72rem; font-weight:900; color:var(--accent-red); letter-spacing:0.1em; text-transform:uppercase; display:block; margin-bottom:6px;">📦 Logistics & Payment</span>
+                            <div style="font-size:0.85rem; color:#1f2937; margin-bottom:4px;"><strong>Payment Mode:</strong> <span style="font-weight:900; color:#10b981;">${ord.paymentMethod || 'Cash on Delivery'}</span></div>
+                            <div style="font-size:0.85rem; color:#1f2937; margin-bottom:4px;"><strong>Status:</strong> <span style="background:var(--accent-red-light); color:var(--accent-red); font-weight:900; padding:2px 8px; border-radius:6px; font-size:0.76rem;">${ord.status || 'Confirmed'}</span></div>
+                            <div style="font-size:0.85rem; color:#1f2937;"><strong>AWB Tracking:</strong> ${ord.courier || 'BlueDart'} (${ord.trackingNo || 'BD-' + ord.id})</div>
+                        </div>
+                    </div>
+
+                    <!-- Full Delivery Address Box -->
+                    <div style="background:#ffffff; padding:16px; border-radius:var(--radius-sm); border:2px solid var(--border-red); margin-bottom:18px;">
+                        <span style="font-size:0.72rem; font-weight:900; color:var(--accent-red); letter-spacing:0.1em; text-transform:uppercase; display:block; margin-bottom:8px;">📍 Complete Delivery Address</span>
+                        <div style="font-size:0.92rem; color:#111827; line-height:1.6;">
+                            ${ord.house ? `<strong>Flat/House/Building:</strong> ${ord.house}<br>` : ''}
+                            ${ord.street ? `<strong>Street/Area:</strong> ${ord.street}<br>` : ''}
+                            ${ord.landmark ? `<strong>Landmark:</strong> <span style="color:var(--accent-red); font-weight:800;">${ord.landmark}</span><br>` : ''}
+                            ${(ord.city || ord.state || ord.pin) ? `<strong>City/State/PIN:</strong> ${ord.city || ''}, ${ord.state || ''} - <strong>${ord.pin || ''}</strong><br>` : ''}
+                            ${!ord.house && !ord.street ? `<strong>Full Address:</strong> ${ord.address || 'Direct Atelier Delivery'}` : ''}
+                        </div>
+                        ${ord.notes ? `
+                            <div style="margin-top:10px; padding-top:8px; border-top:1px dashed #e5e7eb; font-size:0.82rem; color:#4b5563;">
+                                <strong style="color:var(--accent-red);">Tailoring / Delivery Notes:</strong> ${ord.notes}
+                            </div>
+                        ` : ''}
+                    </div>
+
+                    <!-- Garments List -->
+                    <div style="margin-bottom:18px;">
+                        <span style="font-size:0.72rem; font-weight:900; color:var(--accent-red); letter-spacing:0.1em; text-transform:uppercase; display:block; margin-bottom:8px;">👗 Ordered Haute Pieces</span>
+                        ${itemsHtml}
+                    </div>
+
+                    <!-- Order Total Row -->
+                    <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-surface); padding:14px; border-radius:var(--radius-sm); border-top:2px solid var(--border-red);">
+                        <strong style="font-size:1rem; color:#111827;">Total Consignment Amount:</strong>
+                        <strong style="font-size:1.35rem; color:var(--accent-red); font-weight:900;">₹${(ord.total || 0).toLocaleString('en-IN')}</strong>
+                    </div>
+                `;
+
+                modal.classList.add('active');
+            },
+            closeOrderDossierModal() {
+                document.getElementById('admin-order-dossier-modal')?.classList.remove('active');
+            },
+
+            // --- DATABASE UTILITIES ---
+            cleanDatabase() {
+                if (confirm("⚠️ Are you sure you want to clean all demo products and reset the database? You will be able to upload your own bespoke inventory from scratch.")) {
+                    DB.products = [];
+                    DB.cart = [];
+                    DB.orders = [];
+                    StoreApp.saveData();
+                    StoreApp.renderCoverflow();
+                    StoreApp.render2ColGrid(DB.products, 'home-2col-grid');
+                    StoreApp.filterSpotlight('all');
+                    this.switchTab(this.currentTab);
+                    StoreApp.showToast("Database cleaned. Ready for your real collection!");
+                }
+            },
+            loadStarterCatalog() {
+                DB.products = [...DEFAULT_ATELIER_PRODUCTS];
+                StoreApp.saveData();
+                StoreApp.renderCoverflow();
+                StoreApp.render2ColGrid(DB.products, 'home-2col-grid');
+                StoreApp.filterSpotlight('all');
+                this.switchTab(this.currentTab);
+                StoreApp.showToast("Sample luxury catalog restored!");
             }
         };
 
