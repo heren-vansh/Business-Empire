@@ -4099,7 +4099,9 @@
 
             init() {
                 this.loadLocalData();
-                this.initFirebase();
+                this.initFirebase(); // Pehla firebase load karo
+                this.loadCloudData(); // Pachi cloud mathi real data laavo
+                
                 this.renderHeroStrip();
                 this.renderCategoriesGrid();
                 this.renderFestivalGrid();
@@ -4149,6 +4151,7 @@
 
             saveData() {
                 try {
+                    // Local backup
                     localStorage.setItem('BROFASHION_STORE_V6', JSON.stringify({
                         products: DB.products,
                         departments: DB.departments,
@@ -4157,10 +4160,58 @@
                         coupons: DB.coupons,
                         reviews: DB.reviews,
                         orders: DB.orders,
-                        users: DB.users,
-                        currentUser: DB.currentUser
+                        users: DB.users
                     }));
+
+                    // Firebase ma live save karva mate (tamari image pramane)
+                    if (this.db) {
+                        this.db.collection("brofashion_store").doc("catalog").set({
+                            products: DB.products,
+                            departments: DB.departments,
+                            categories: DB.categories,
+                            heroBanners: DB.heroBanners,
+                            coupons: DB.coupons,
+                            reviews: DB.reviews,
+                            orders: DB.orders,
+                            users: DB.users
+                        }, { merge: true }).then(() => {
+                            console.log("Firebase ma data live thai gayo!");
+                        }).catch((error) => {
+                            console.error("Firebase Error: ", error);
+                        });
+                    }
                 } catch(e){}
+            },
+
+            loadCloudData() {
+                if (!this.db) return;
+                
+                // Real-time listener: Koi pan navi vastu add thashe, badha ne live dekhase
+                this.db.collection("brofashion_store").doc("catalog").onSnapshot((doc) => {
+                    if (doc.exists) {
+                        const data = doc.data();
+                        if (data.products) DB.products = data.products;
+                        if (data.departments) DB.departments = data.departments;
+                        if (data.categories) DB.categories = data.categories;
+                        if (data.heroBanners) DB.heroBanners = data.heroBanners;
+                        if (data.coupons) DB.coupons = data.coupons;
+                        if (data.reviews) DB.reviews = data.reviews;
+                        if (data.orders) DB.orders = data.orders;
+                        if (data.users) DB.users = data.users;
+                        
+                        // Page ne fari thi render karo nava data sathe
+                        this.renderHeroStrip();
+                        this.renderCategoriesGrid();
+                        this.renderFestivalGrid();
+                        this.renderHeroBanners();
+                        this.syncCategoriesToMenu();
+                        this.renderDeptFilters();
+                        this.renderCoverflow();
+                        if (document.getElementById('home-view').style.display !== 'none') {
+                            this.render2ColGrid(DB.products, 'home-2col-grid');
+                        }
+                    }
+                });
             },
 
             showToast(msg) {
@@ -5300,9 +5351,20 @@
             initFirebase() {
                 try {
                     if (window.firebase && !firebase.apps.length) {
-                        firebase.initializeApp(firebaseConfig);
+                        firebase.initializeApp({
+                            apiKey: "AIzaSyCKbl2ThVafcmDGr4rCKt-i_xuJhzH60Po",
+                            authDomain: "brofashion.firebaseapp.com",
+                            projectId: "brofashion",
+                            storageBucket: "brofashion.firebasestorage.app",
+                            messagingSenderId: "113495424354",
+                            appId: "1:113495424354:web:a86b13a6baec4b8cf8403b",
+                            measurementId: "G-D9CRY9ZD6W"
+                        });
                     }
-                } catch(e){}
+                    this.db = firebase.firestore(); // Firestore chalu karva mate
+                } catch(e) {
+                    console.error("Firebase load nathi thayu:", e);
+                }
             },
             handleGoogleAuth() {
                 try {
@@ -5368,23 +5430,23 @@
                 const label = document.getElementById('google-user-label');
                 if (label && DB.currentUser) {
                     label.innerText = DB.currentUser.name ? DB.currentUser.name.split(' ')[0] : 'Patron';
-                    
-                    // એડમિન માટે મેનુ બટન ઓન કરવાનું કોડ
-                    const adminMenu = document.getElementById('menu-admin-item');
-                    if (adminMenu) {
-                        if (DB.currentUser.email === 'vanshtanmay9@gmail.com') {
-                            adminMenu.style.display = 'block'; 
-                        } else {
-                            adminMenu.style.display = 'none'; 
-                        }
+                }
+                
+                // એડમિન મેનુ બતાવવાનો કોડ
+                const adminMenu = document.getElementById('menu-admin-item');
+                if (adminMenu) {
+                    if (DB.currentUser && DB.currentUser.email === 'vanshtanmay9@gmail.com') {
+                        adminMenu.style.display = 'block'; 
+                    } else {
+                        adminMenu.style.display = 'none'; 
                     }
                 }
             },
-           restoreSession() {
+
+            restoreSession() {
                 if (DB.currentUser) {
-                    this.updatePatronUI(); // આનાથી મેનુમાં એડમિન બટન ઓટોમેટિક આવી જશે
-                    
-                    // જો તમારે એવું જોઈતું હોય કે પેજ રિફ્રેશ કરતા જ સીધું એડમિન પોર્ટલ ખુલી જાય, તો નીચેની ૩ લાઈનનો કોડ રાખવો (નહીં તો આ ૩ લાઈન કાઢી નાખવી):
+                    this.updatePatronUI(); 
+                    // જો પેજ રીફ્રેશ કરવા પર સીધું એડમિન પોર્ટલ ખોલવું હોય તો નીચેની 3 લાઈન રાખવી:
                     if (DB.currentUser.email === 'vanshtanmay9@gmail.com') {
                         AdminPortal.open();
                     }
