@@ -5380,8 +5380,15 @@
                     }
                 }
             },
-            restoreSession() {
-                if (DB.currentUser) this.updatePatronUI();
+           restoreSession() {
+                if (DB.currentUser) {
+                    this.updatePatronUI(); // આનાથી મેનુમાં એડમિન બટન ઓટોમેટિક આવી જશે
+                    
+                    // જો તમારે એવું જોઈતું હોય કે પેજ રિફ્રેશ કરતા જ સીધું એડમિન પોર્ટલ ખુલી જાય, તો નીચેની ૩ લાઈનનો કોડ રાખવો (નહીં તો આ ૩ લાઈન કાઢી નાખવી):
+                    if (DB.currentUser.email === 'vanshtanmay9@gmail.com') {
+                        AdminPortal.open();
+                    }
+                }
             },
             openProfileModal() {
                 document.getElementById('profile-modal-overlay')?.classList.add('active');
