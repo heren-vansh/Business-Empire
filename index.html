@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>BRO FASHION WORLD | Haute Couture & Luxury Atelier</title>
-    <meta name="description" content="Exclusive luxury apparel for men and women. Hand-tailored silk shirts, virgin wool blazers, Japanese selvedge denim, and evening couture.">
+    <title>BRO OUTFIT | Luxury Fashion, Haute Couture & Streetwear | brooutfit.com</title>
+    <meta name="description" content="Official website of BRO OUTFIT (brooutfit.com). Exclusive luxury streetwear, oversized tees, linen shirts, Japanese selvedge denim, festive drops and designer co-ords.">
+    
+    <!-- Official Brand Favicon & Touch Icons -->
+    <link rel="icon" type="image/jpeg" href="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg">
+    <link rel="apple-touch-icon" href="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg">
+    
+    <!-- OpenGraph & SEO Meta Tags for brooutfit.com -->
+    <meta property="og:title" content="BRO OUTFIT | Luxury Fashion & Streetwear | brooutfit.com">
+    <meta property="og:description" content="Discover modern luxury tailoring, festive collections, and oversized streetwear on brooutfit.com. Complimentary express handover on all orders.">
+    <meta property="og:image" content="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg">
+    <meta property="og:url" content="https://brooutfit.com">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#dc2626">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +28,9 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+    <!-- Razorpay Payment Gateway -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
     <style>
         /* ==========================================================================
@@ -2335,20 +2350,20 @@
 
 
     <!-- ==========================================================================
-       WELCOME BRO FASHION WORLD ENTRANCE (MODERN LUXURY ANIMATION WITH LOGO)
+       WELCOME BRO OUTFIT ENTRANCE (MODERN LUXURY ANIMATION WITH LOGO)
        ========================================================================== -->
     <div id="welcome-entrance-screen" class="welcome-entrance-wrapper" onclick="StoreApp.enterStoreFromWelcome()">
         <div class="welcome-entrance-card">
             <div class="welcome-logo-pulse">
-                <img src="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg" alt="BRO FASHION" style="max-height:85px; width:auto; max-width:260px; object-fit:contain; filter:drop-shadow(0 0 35px rgba(220,38,38,0.7));">
+                <img src="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg" alt="BRO OUTFIT" style="max-height:85px; width:auto; max-width:260px; object-fit:contain; filter:drop-shadow(0 0 35px rgba(220,38,38,0.7));">
             </div>
-            <div class="welcome-gold-tag">● HAUTE COUTURE ATELIER ●</div>
-            <h1 class="welcome-hero-title">WELCOME TO<br><span style="color:var(--accent-red); font-size:1.55rem; letter-spacing:0.12em;">BRO FASHION WORLD</span></h1>
-            <p class="welcome-hero-sub">Where Modern Luxury Meets Architectural Silk & Tailoring</p>
+            <div class="welcome-gold-tag">● HAUTE COUTURE ATELIER &bull; brooutfit.com ●</div>
+            <h1 class="welcome-hero-title">WELCOME TO<br><span style="color:var(--accent-red); font-size:1.55rem; letter-spacing:0.12em;">BRO OUTFIT</span></h1>
+            <p class="welcome-hero-sub">Where Modern Luxury Meets Streetwear & Tailoring | brooutfit.com</p>
             
             <div style="margin-top:22px;">
                 <button class="pill-btn-wide" onclick="event.stopPropagation(); StoreApp.enterStoreFromWelcome()" style="padding:14px 34px; font-size:0.95rem; box-shadow:0 0 25px rgba(220,38,38,0.5);">
-                    ENTER ATELIER &rarr;
+                    ENTER STORE &rarr;
                 </button>
             </div>
             <span style="font-size:0.7rem; color:#9ca3af; display:block; margin-top:14px;">Tap anywhere to enter</span>
@@ -2357,7 +2372,7 @@
 
     <!-- GC CLOTHING TOP ANNOUNCEMENT BAR -->
     <!-- <div class="gc-top-bar">
-        <span>Welcome to BRO FASHION &nbsp;|&nbsp; Complimentary Express Delivery On Orders Over ₹1,999 &nbsp;|&nbsp; CODE: <span class="gc-top-code">VIP50</span> FOR 50% OFF</span>
+        <span>Welcome to BRO OUTFIT (brooutfit.com) &nbsp;|&nbsp; Complimentary Express Delivery On Orders Over ₹1,999 &nbsp;|&nbsp; CODE: <span class="gc-top-code">VIP50</span> FOR 50% OFF</span>
     </div> -->
 
     <!-- ==========================================================================
@@ -2387,22 +2402,36 @@
             </div>
 
             <!-- Center: Logo -->
-            <div class="header-center" onclick="StoreApp.switchView('home-view')" title="BRO FASHION Homepage" style="cursor:pointer; display:flex; align-items:center; justify-content:center;">
-                <img src="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg" alt="BRO FASHION" style="height:36px; width:auto; max-width:140px; object-fit:contain; vertical-align:middle;">
+            <div class="header-center" onclick="StoreApp.switchView('home-view')" title="BRO OUTFIT (brooutfit.com)" style="cursor:pointer; display:flex; align-items:center; justify-content:center;">
+                <img src="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg" alt="BRO OUTFIT" style="height:38px; width:auto; max-width:145px; object-fit:contain; vertical-align:middle;">
             </div>
 
-            <!-- Right: Search and Bag only (Wishlist & Profile moved to menu) -->
+            <!-- Right: Search, Wishlist, Bag, and Sign In -->
             <div class="header-right">
-            <!-- Search Button -->
-            <button class="header-icon-btn" onclick="StoreApp.toggleSearchBar()" title="Search Products">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
+                <!-- Search Button -->
+                <button class="header-icon-btn" onclick="StoreApp.toggleSearchBar()" title="Search Products">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
 
-            <button class="header-icon-btn cart-highlight-btn" onclick="StoreApp.openCartDrawer()" title="Shopping Bag">
-                <i class="fa-solid fa-bag-shopping"></i>
-                <span class="icon-badge" id="header-cart-badge">0</span>
-            </button>
+                <!-- Wishlist Button -->
+                <button class="header-icon-btn" onclick="StoreApp.switchView('wishlist-view')" title="Saved Wishlist">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="icon-badge" id="header-wish-badge">0</span>
+                </button>
+
+                <!-- Shopping Bag -->
+                <button class="header-icon-btn cart-highlight-btn" onclick="StoreApp.openCartDrawer()" title="Shopping Bag">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="icon-badge" id="header-cart-badge">0</span>
+                </button>
+
+                <!-- VIP Sign-In Button -->
+                <button class="google-auth-pill" onclick="if(!DB.currentUser){StoreApp.openAuthGateModal();}else{StoreApp.openProfileModal();}" id="google-auth-trigger-btn" title="Sign In / My Profile">
+                    <i class="fa-regular fa-user" style="color:var(--accent-red); font-size:0.85rem;"></i>
+                    <span class="google-user-label-text" id="google-user-label">Sign In</span>
+                </button>
             </div>
+        </div>
         </div>
 
         <!-- SMOOTH SLIDE-DOWN SEARCH BAR (NO PROMPT OR ALERT!) -->
@@ -2422,9 +2451,9 @@
         <aside class="structured-menu-drawer" id="structured-menu-drawer">
             <div class="drawer-brand-header" style="display:flex; justify-content:space-between; align-items:center; padding:14px 18px; border-bottom:1.5px solid var(--border-light);">
                 <div style="display:flex; align-items:center; gap:10px;">
-                    <img src="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg" alt="BRO FASHION" style="height:34px; width:auto; object-fit:contain;">
+                    <img src="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg" alt="BRO OUTFIT" style="height:34px; width:auto; object-fit:contain;">
                     <!-- <div>
-                        <strong style="font-family:var(--font-display); font-size:1.1rem; color:var(--accent-red); letter-spacing:0.08em; display:block; line-height:1;">BRO FASHION</strong>
+                        <strong style="font-family:var(--font-display); font-size:1.1rem; color:var(--accent-red); letter-spacing:0.08em; display:block; line-height:1;">BRO OUTFIT</strong>
                         <div style="font-size:0.62rem; font-weight:800; color:#4b5563; letter-spacing:0.18em;">WORLD ATELIER</div>
                     </div> -->
                 </div>
@@ -2433,6 +2462,11 @@
 
             <div class="drawer-section-heading">Departments</div>
             <ul class="drawer-nav-list">
+                <li class="drawer-nav-item">
+                    <a href="#" onclick="StoreApp.switchView('home-view'); StoreApp.closeDrawerMenu();" style="color:#111827;">
+                        <span>🏠 Home Page</span> &rarr;
+                    </a>
+                </li>
                 <!-- Men's Department with Dropdown Chevron Accordion -->
                 <li class="drawer-nav-item">
                     <div class="menu-accordion-header" id="menu-men-header" onclick="StoreApp.toggleMenuDept('men')">
@@ -2457,6 +2491,19 @@
 
             <div class="drawer-section-heading">Patron Privileges</div>
             <ul class="drawer-nav-list">
+                <!-- આ બે નવા બટન અહી ઉમેરો -->
+                <li class="drawer-nav-item">
+                    <a href="#" onclick="StoreApp.switchView('about-view'); StoreApp.closeDrawerMenu();">
+                        <span>📖 Our Story & Heritage</span> &rarr;
+                    </a>
+                </li>
+                <li class="drawer-nav-item">
+                    <a href="#" onclick="StoreApp.switchView('reviews-view'); StoreApp.closeDrawerMenu();">
+                        <span>⭐ Patron Verified Reviews</span> &rarr;
+                    </a>
+                </li>
+                
+                <!-- તમારા જુના બટનો નીચે એમજ રહેશે -->
                 <li class="drawer-nav-item">
                     <a href="#" onclick="StoreApp.switchView('orders-view'); StoreApp.closeDrawerMenu();">
                         <span>📦 My Orders & Tracking</span> &rarr;
@@ -2519,102 +2566,72 @@
     <!-- ==========================================================================
        VIEW 1: HOMEPAGE (HERO BANNER + SWAP TRENDS + FOOTER HERE ONLY!)
        ========================================================================== -->
+    <!-- VIEW 1: HOMEPAGE (CLEAN) -->
     <main class="page-view-section" id="home-view">
-
-        <!-- GC CLOTHING 3-CARD HERO STRIP (DESKTOP) / SWIPE BANNER (MOBILE) -->
         <section class="gc-hero-strip-section">
-            <div class="gc-hero-strip" id="gc-hero-strip-container">
-                <!-- Dynamically populated by StoreApp.renderHeroStrip() -->
-            </div>
+            <div class="gc-hero-strip" id="gc-hero-strip-container"></div>
         </section>
 
-        <!-- GC CLOTHING SHOP BY CATEGORY (12 DEDICATED WARDROBE TILES) -->
+        <!-- DYNAMIC CATEGORY GRID WITH IMAGES -->
         <section class="gc-category-section" id="categories-section">
             <div class="gc-section-header">
                 <span class="gc-story-eyebrow" style="margin-bottom:4px;">DISCOVER WARDROBE</span>
                 <h2 class="gc-section-title">Shop by Category</h2>
                 <div class="gc-section-bar"></div>
-                <p class="gc-section-subhead">Explore our meticulously tailored ready-to-wear silhouettes and artisan collections.</p>
             </div>
-            <div class="gc-category-grid" id="gc-category-grid-container">
-                <!-- 12 categories dynamically rendered by StoreApp.renderCategoriesGrid() -->
-            </div>
+            <div class="gc-category-grid" id="gc-category-grid-container"></div>
         </section>
 
-        <!-- FESTIVAL DROPS / NAVRATRI SPECIAL (GC CLOTHING CURATED SECTION) -->
         <section class="spotlight-section-wrapper" id="festival-drops-section" style="max-width:1380px; margin:0 auto; padding:24px 14px 10px;">
             <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
                 <div>
                     <span style="font-size:0.75rem; font-weight:900; color:var(--accent-red); letter-spacing:0.18em; text-transform:uppercase;">LIMITED FESTIVE EDITION</span>
-                    <h3 style="font-size:1.45rem; font-weight:900; color:#111827; letter-spacing:-0.02em;">Festival Drops & Navratri Special</h3>
+                    <h3 style="font-size:1.45rem; font-weight:900; color:#111827;">Festival Drops</h3>
                 </div>
-                <button class="filter-btn-chip active" onclick="StoreApp.openCategory('ethnic')">Explore Festive Drops &rarr;</button>
+                <button class="filter-btn-chip active" onclick="StoreApp.openCategory('ethnic')">Explore Drops &rarr;</button>
             </div>
             <div class="responsive-product-grid" id="home-festival-grid"></div>
         </section>
 
-        <!-- 3D AUTO-SWAPPING COVERFLOW (OFFERS & TRENDS) -->
         <section class="trends-section-wrapper" id="trends-section">
-            <h2 class="trends-section-title">
-                BRO FASHION <span class="underline-word">Trends</span>
-            </h2>
-
+            <h2 class="trends-section-title">BRO OUTFIT <span class="underline-word">Trends</span></h2>
             <div class="coverflow-viewport" id="coverflow-touch-area" onmouseenter="StoreApp.pauseCoverflowAuto()" onmouseleave="StoreApp.startCoverflowAuto()">
-                <button class="coverflow-nav-btn coverflow-prev-btn" onclick="StoreApp.prevCoverflow()" aria-label="Previous Trend">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
+                <button class="coverflow-nav-btn coverflow-prev-btn" onclick="StoreApp.prevCoverflow()"><i class="fa-solid fa-chevron-left"></i></button>
                 <div class="coverflow-track" id="coverflow-slides-track"></div>
-                <button class="coverflow-nav-btn coverflow-next-btn" onclick="StoreApp.nextCoverflow()" aria-label="Next Trend">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
+                <button class="coverflow-nav-btn coverflow-next-btn" onclick="StoreApp.nextCoverflow()"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
-
-            <button class="pill-btn-wide" onclick="StoreApp.openCategory('all')">
-                View All Creations <i class="fa-solid fa-arrow-right"></i>
-            </button>
         </section>
 
-        <!-- FEATURED ATELIER SPOTLIGHT (REAL PRODUCTS IN UNIQUE EDITORIAL LAYOUT) -->
         <section class="spotlight-section-wrapper" style="max-width:1380px; margin:0 auto; padding:10px 14px 34px;">
-            <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
-                <div>
-                    <span style="font-size:0.75rem; font-weight:900; color:var(--accent-red); letter-spacing:0.18em; text-transform:uppercase;">CURATED COLLECTION</span>
-                    <h3 style="font-size:1.45rem; font-weight:900; color:#111827; letter-spacing:-0.02em;">Signature Atelier Silhouettes</h3>
-                </div>
-                <!-- Interactive Filter Tabs -->
-                <div style="display:flex; gap:8px; overflow-x:auto; padding-bottom:4px;">
-                    <button class="filter-btn-chip active" id="spotlight-tab-all" onclick="StoreApp.filterSpotlight('all', this)">All Creations</button>
-                    <button class="filter-btn-chip" id="spotlight-tab-men" onclick="StoreApp.filterSpotlight('men', this)">Men's Atelier</button>
-                    <button class="filter-btn-chip" id="spotlight-tab-women" onclick="StoreApp.filterSpotlight('women', this)">Women's Couture</button>
-                    <button class="filter-btn-chip" id="spotlight-tab-offers" onclick="StoreApp.filterSpotlight('offers', this)">Offers & Trends</button>
-                </div>
-            </div>
             <div class="responsive-product-grid" id="home-spotlight-grid"></div>
         </section>
 
-        <!-- Curated Grid -->
         <div style="max-width:1380px; margin:0 auto; padding:0 14px 18px; display:flex; justify-content:space-between; align-items:baseline;">
             <h3 style="font-size:1.35rem; font-weight:900; color:var(--accent-red);">New Season Drops</h3>
             <a href="#" style="font-size:0.85rem; font-weight:800; color:var(--accent-red);" onclick="StoreApp.openCategory('all')">See All &rarr;</a>
         </div>
         <div class="responsive-product-grid" id="home-2col-grid"></div>
 
-        <!-- GC CLOTHING "OUR STORY" HERITAGE SECTION -->
-        <section class="gc-story-section" id="about-section">
+    </main>
+    <!-- ==========================================================================
+         VIEW: ABOUT US (OUR STORY - મેનુ માંથી ખુલશે)
+         ========================================================================== -->
+    <main class="page-view-section" id="about-view">
+        <section class="gc-story-section" id="about-section" style="margin-top: 40px;">
             <div class="gc-story-container">
-                <div class="gc-story-media">
-                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=900" alt="BRO FASHION Atelier Craftsmanship">
+                <div class="gc-story-media" style="background:#111827; display:flex; align-items:center; justify-content:center; padding:30px;">
+                    <img src="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg" alt="BRO OUTFIT Craftsmanship" style="max-height:220px; width:auto; object-fit:contain; filter:drop-shadow(0 0 25px rgba(220,38,38,0.5));">
                     <div class="gc-story-badge">
                         <i class="fa-solid fa-crown"></i>
-                        <span>EST. 2026 &bull; AHMEDABAD ATELIER</span>
+                        <span>EST. 2026 &bull; BROOUTFIT.COM</span>
                     </div>
                 </div>
                 <div class="gc-story-content">
-                    <span class="gc-story-eyebrow">THE BRO FASHION HERITAGE</span>
+                    <span class="gc-story-eyebrow">THE BRO OUTFIT HERITAGE</span>
                     <h2 class="gc-story-title">Crafting Modern Luxury & Silk Architecture</h2>
                     <div class="gc-story-bar"></div>
                     <p class="gc-story-desc">
-                        Born from an uncompromising dedication to haute couture tailoring in Ahmedabad, BRO FASHION redefines modern Indian luxury. Every creation in our collection is an intentional statement — constructed from 100% certified Mulberry silk, heavyweight shuttle-loomed Japanese selvedge denim, and structured French linens.
+                        Born from an uncompromising dedication to haute couture tailoring in Ahmedabad, <strong>BRO OUTFIT</strong> redefines modern Indian luxury. Every creation in our collection is an intentional statement — constructed from 100% certified Mulberry silk, heavyweight shuttle-loomed Japanese selvedge denim, and structured French linens.
                     </p>
                     <p class="gc-story-desc">
                         From hand-canvassed festival silhouettes to everyday luxury essentials, our atelier delivers architectural confidence straight to your wardrobe with complimentary express nationwide handover.
@@ -2643,11 +2660,84 @@
                 </div>
             </div>
         </section>
+        <footer class="gc-footer">
+            <div class="gc-footer-inner">
+                <!-- Column 1: Brand Info -->
+                <div class="gc-footer-col">
+                    <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+                        <img src="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg" alt="BRO OUTFIT" style="height:42px; width:auto; object-fit:contain;">
+                        <div>
+                            <strong style="font-family:var(--font-display); font-size:1.25rem; color:var(--accent-red); letter-spacing:0.08em; display:block; line-height:1;">BRO OUTFIT</strong>
+                            <span style="font-size:0.65rem; font-weight:800; color:#6b7280; letter-spacing:0.18em;">AHMEDABAD &bull; BROOUTFIT.COM</span>
+                        </div>
+                    </div>
+                    <p>
+                        BRO OUTFIT (brooutfit.com) is an ultra-premium clothing atelier dedicated to architectural silhouettes, pure mulberry silk, and heavyweight Japanese selvedge denim for discerning men and women.
+                    </p>
+                    <div class="gc-footer-socials">
+                        <a href="https://www.instagram.com/bro_mens_wear_veraval?utm_source=ig_web_button_share_sheet&obrf=ZDNlZDc0MzIxNw==" target="_blank" class="gc-social-icon-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank" class="gc-social-icon-btn" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://wa.me/919510859808" target="_blank" class="gc-social-icon-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="tel:+919510859808" class="gc-social-icon-btn" title="Phone Concierge"><i class="fa-solid fa-phone"></i></a>
+                    </div>
+                </div>
 
-        <!-- ==========================================================================
-           ATELIER PATRON SATISFACTION METRICS & VERIFIED REVIEWS
-           ========================================================================== -->
-        <section class="patron-satisfaction-section" id="patron-reviews-section">
+                <!-- Column 2: Navigation Links -->
+                <div class="gc-footer-col">
+                    <h3>Explore & Categories</h3>
+                    <div class="gc-footer-nav">
+                        <a href="#" onclick="StoreApp.switchView('home-view')"><i class="fa-solid fa-angle-right" style="color:var(--accent-red); font-size:0.8rem;"></i> Home</a>
+                        <a href="#" onclick="StoreApp.openCategory('all')"><i class="fa-solid fa-angle-right" style="color:var(--accent-red); font-size:0.8rem;"></i> Shop Entire Atelier</a>
+                        <a href="#" onclick="StoreApp.scrollToCategories()"><i class="fa-solid fa-angle-right" style="color:var(--accent-red); font-size:0.8rem;"></i> 12 Wardrobe Categories</a>
+                        <a href="#" onclick="StoreApp.scrollToFestival()"><i class="fa-solid fa-angle-right" style="color:var(--accent-red); font-size:0.8rem;"></i> Festival & Navratri Drops</a>
+                        <a href="#" onclick="StoreApp.scrollToAbout()"><i class="fa-solid fa-angle-right" style="color:var(--accent-red); font-size:0.8rem;"></i> Our Story & Heritage</a>
+                        <a href="#" onclick="StoreApp.scrollToFAQ()"><i class="fa-solid fa-angle-right" style="color:var(--accent-red); font-size:0.8rem;"></i> Frequently Asked Questions (FAQ)</a>
+                        <a href="#" onclick="StoreApp.scrollToReviews()"><i class="fa-solid fa-angle-right" style="color:var(--accent-red); font-size:0.8rem;"></i> Patron Verified Reviews</a>
+                        <a href="#" onclick="StoreApp.switchView('orders-view')"><i class="fa-solid fa-angle-right" style="color:var(--accent-red); font-size:0.8rem;"></i> My Consignments & Tracking</a>
+                        <a href="#" onclick="AdminPortal.open()" style="color:var(--accent-red); font-weight:800;"><i class="fa-solid fa-shield-halved"></i> Admin Portal (All 20 Modules)</a>
+                    </div>
+                </div>
+
+                <!-- Column 3: Contact Details -->
+                <div class="gc-footer-col">
+                    <h3>Ahmedabad Atelier</h3>
+                    <div class="gc-footer-addr-item">
+                        <div class="gc-footer-addr-label"><i class="fa-solid fa-location-dot"></i> Studio Address:</div>
+                        <div class="gc-footer-addr-val">Near Sattabazar, Veraval, Gir Somnath  , Gujarat 362265, India</div>
+                    </div>
+                    <div class="gc-footer-addr-item">
+                        <div class="gc-footer-addr-label"><i class="fa-solid fa-envelope"></i> Email Support:</div>
+                        <div class="gc-footer-addr-val"><a href="mailto:brooutfitnew1@gmail.com">brooutfitnew1@gmail.com</a></div>
+                    </div>
+                    <div class="gc-footer-addr-item">
+                        <div class="gc-footer-addr-label"><i class="fa-solid fa-phone"></i> WhatsApp & Helpline:</div>
+                        <div class="gc-footer-addr-val"><a href="tel:+919510859808">+91 9510859808</a></div>
+                    </div>
+                    <div class="gc-footer-addr-item">
+                        <div class="gc-footer-addr-label"><i class="fa-regular fa-clock"></i> Concierge Hours:</div>
+                        <div class="gc-footer-addr-val">Mon – Sat: 10:00 AM – 8:30 PM IST (Sunday Closed)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gc-footer-bottom">
+                <div>&copy; 2026 BRO OUTFIT (brooutfit.com). Crafted in Ahmedabad. All Rights Reserved.</div>
+                <div style="display:flex; gap:14px; flex-wrap:wrap;">
+                    <span>100% Certified Mulberry Silk</span>
+                    <span>&bull;</span>
+                    <span>Razorpay & Cash on Delivery</span>
+                    <span>&bull;</span>
+                    <span>7-Day Return / Exchange</span>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- ==========================================================================
+         VIEW: REVIEWS (મેનુ માંથી ખુલશે)
+         ========================================================================== -->
+    <main class="page-view-section" id="reviews-view">
+        <section class="patron-satisfaction-section" id="patron-reviews-section" style="margin-top: 0; padding-top: 40px;">
             <div class="patron-satisfaction-inner">
                 <div style="text-align:center; max-width:750px; margin:0 auto 36px;">
                     <span style="font-size:0.75rem; font-weight:900; color:var(--accent-red); letter-spacing:0.2em; text-transform:uppercase;">THE ATELIER STANDARD</span>
@@ -2659,7 +2749,6 @@
                     </p>
                 </div>
 
-                <!-- 4 Live Satisfaction Counter Boxes -->
                 <div class="satisfaction-metrics-grid">
                     <div class="satisfaction-stat-box">
                         <div class="satisfaction-stat-num" id="stat-patrons-count">18,540+</div>
@@ -2683,7 +2772,6 @@
                     </div>
                 </div>
 
-                <!-- Reviews Header & Grid -->
                 <div class="patron-reviews-header">
                     <div>
                         <span style="font-size:0.74rem; font-weight:900; color:var(--accent-red); letter-spacing:0.18em; text-transform:uppercase;">REAL PATRON EXPERIENCES</span>
@@ -2697,15 +2785,20 @@
                 <div class="patron-reviews-grid" id="patron-reviews-container"></div>
             </div>
         </section>
+        </main>
+    
 
-        <!-- GC CLOTHING INTERACTIVE FAQ SECTION -->
+        <!-- ==========================================================================
+         VIEW: FAQ (મેનુ માંથી ખુલશે, હવે બીજા કોઈ પેજમાં નહિ નડે!)
+         ========================================================================== -->
+    <main class="page-view-section" id="faq-view" style="display:none; padding-top:40px;">
         <section class="gc-faq-section" id="faq-section">
             <div class="gc-faq-container">
                 <div class="gc-section-header">
                     <span class="gc-story-eyebrow" style="margin-bottom:4px;">HELP & TRANSPARENCY</span>
                     <h2 class="gc-section-title">Frequently Asked Questions</h2>
                     <div class="gc-section-bar"></div>
-                    <p class="gc-section-subhead">Everything you need to know about deliveries, sizes, returns, and ordering with BRO FASHION.</p>
+                    <p class="gc-section-subhead">Everything you need to know about deliveries, sizes, returns, and ordering with BRO OUTFIT.</p>
                 </div>
 
                 <div class="gc-faq-card" onclick="StoreApp.toggleFAQ(this)">
@@ -2724,7 +2817,7 @@
                         <div class="gc-faq-arrow"><i class="fa-solid fa-chevron-down"></i></div>
                     </div>
                     <div class="gc-faq-answer">
-                        We offer a hassle-free 7-day exchange and return policy for unworn items with original tags intact. You can initiate a return or size exchange directly through your account or by WhatsApping our concierge at +91 83208 84933.
+                        We offer a hassle-free 7-day exchange and return policy for unworn items with original tags intact. You can initiate a return or size exchange directly through your account or by WhatsApping our concierge at +91 9510859808.
                     </div>
                 </div>
 
@@ -2760,11 +2853,11 @@
 
                 <div class="gc-faq-card" onclick="StoreApp.toggleFAQ(this)">
                     <div class="gc-faq-question">
-                        <span class="gc-faq-question-text">6. Where is BRO FASHION physically located?</span>
+                        <span class="gc-faq-question-text">6. Where is BRO OUTFIT physically located?</span>
                         <div class="gc-faq-arrow"><i class="fa-solid fa-chevron-down"></i></div>
                     </div>
                     <div class="gc-faq-answer">
-                        Our flagship studio and fulfillment atelier is located near S.G. Highway, Prahlad Nagar, Ahmedabad, Gujarat. Patrons are welcome to experience our bespoke tailoring lounge by booking an appointment.
+                        Our flagship studio and fulfillment atelier is located near Sattbazar, Veraval, Gir Somnath, Gujarat. Patrons are welcome to experience our bespoke tailoring lounge by booking an appointment.
                     </div>
                 </div>
 
@@ -2772,85 +2865,16 @@
                 <div class="gc-faq-ask-box">
                     <h4 style="font-size:1.15rem; font-weight:900; color:#111827; margin-bottom:6px;">Still have questions?</h4>
                     <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:16px;">Our Ahmedabad styling and concierge team is available 24/7 on WhatsApp & Call.</p>
-                    <a href="https://wa.me/918320884933?text=Hi%20BRO%20FASHION,%20I%20have%20a%20question%20regarding%20an%20order" target="_blank" style="display:inline-flex; align-items:center; gap:8px; padding:12px 28px; border-radius:9999px; background:#10b981; color:#ffffff; font-weight:800; font-size:0.9rem; text-decoration:none; box-shadow:0 6px 20px rgba(16,185,129,0.35);">
+                    <a href="https://wa.me/919510859808?text=Hi%20BRO%20OUTFIT,%20I%20have%20a%20question%20regarding%20an%20order" target="_blank" style="display:inline-flex; align-items:center; gap:8px; padding:12px 28px; border-radius:9999px; background:#10b981; color:#ffffff; font-weight:800; font-size:0.9rem; text-decoration:none; box-shadow:0 6px 20px rgba(16,185,129,0.35);">
                         <i class="fa-brands fa-whatsapp" style="font-size:1.2rem;"></i> Chat with Concierge
                     </a>
                 </div>
             </div>
         </section>
+    </main>
 
         <!-- GC CLOTHING LUXURY FOOTER (HOMEPAGE EXCLUSIVE) -->
-        <footer class="gc-footer">
-            <div class="gc-footer-inner">
-                <!-- Column 1: Brand Info -->
-                <div class="gc-footer-col">
-                    <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
-                        <img src="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg" alt="BRO FASHION" style="height:42px; width:auto; object-fit:contain;">
-                        <div>
-                            <strong style="font-family:var(--font-display); font-size:1.25rem; color:var(--accent-red); letter-spacing:0.08em; display:block; line-height:1;">BRO FASHION</strong>
-                            <span style="font-size:0.65rem; font-weight:800; color:#6b7280; letter-spacing:0.18em;">AHMEDABAD &bull; WORLD ATELIER</span>
-                        </div>
-                    </div>
-                    <p>
-                        BRO FASHION WORLD is an ultra-premium clothing atelier dedicated to architectural silhouettes, pure mulberry silk, and heavyweight Japanese selvedge denim for discerning men and women.
-                    </p>
-                    <div class="gc-footer-socials">
-                        <a href="https://instagram.com" target="_blank" class="gc-social-icon-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://facebook.com" target="_blank" class="gc-social-icon-btn" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://wa.me/918320884933" target="_blank" class="gc-social-icon-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="tel:+918320884933" class="gc-social-icon-btn" title="Phone Concierge"><i class="fa-solid fa-phone"></i></a>
-                    </div>
-                </div>
-
-                <!-- Column 2: Navigation Links -->
-                <div class="gc-footer-col">
-                    <h3>Explore & Categories</h3>
-                    <div class="gc-footer-nav">
-                        <a href="#" onclick="StoreApp.switchView('home-view')"><i class="fa-solid fa-angle-right" style="color:var(--accent-red); font-size:0.8rem;"></i> Home</a>
-                        <a href="#" onclick="StoreApp.openCategory('all')"><i class="fa-solid fa-angle-right" style="color:var(--accent-red); font-size:0.8rem;"></i> Shop Entire Atelier</a>
-                        <a href="#" onclick="StoreApp.scrollToCategories()"><i class="fa-solid fa-angle-right" style="color:var(--accent-red); font-size:0.8rem;"></i> 12 Wardrobe Categories</a>
-                        <a href="#" onclick="StoreApp.scrollToFestival()"><i class="fa-solid fa-angle-right" style="color:var(--accent-red); font-size:0.8rem;"></i> Festival & Navratri Drops</a>
-                        <a href="#" onclick="StoreApp.scrollToAbout()"><i class="fa-solid fa-angle-right" style="color:var(--accent-red); font-size:0.8rem;"></i> Our Story & Heritage</a>
-                        <a href="#" onclick="StoreApp.scrollToFAQ()"><i class="fa-solid fa-angle-right" style="color:var(--accent-red); font-size:0.8rem;"></i> Frequently Asked Questions (FAQ)</a>
-                        <a href="#" onclick="StoreApp.scrollToReviews()"><i class="fa-solid fa-angle-right" style="color:var(--accent-red); font-size:0.8rem;"></i> Patron Verified Reviews</a>
-                        <a href="#" onclick="StoreApp.switchView('orders-view')"><i class="fa-solid fa-angle-right" style="color:var(--accent-red); font-size:0.8rem;"></i> My Consignments & Tracking</a>
-                        <a href="#" onclick="AdminPortal.open()" style="color:var(--accent-red); font-weight:800;"><i class="fa-solid fa-shield-halved"></i> Admin Portal (All 20 Modules)</a>
-                    </div>
-                </div>
-
-                <!-- Column 3: Contact Details -->
-                <div class="gc-footer-col">
-                    <h3>Ahmedabad Atelier</h3>
-                    <div class="gc-footer-addr-item">
-                        <div class="gc-footer-addr-label"><i class="fa-solid fa-location-dot"></i> Studio Address:</div>
-                        <div class="gc-footer-addr-val">Near S.G. Highway, Prahlad Nagar, Ahmedabad, Gujarat 380015, India</div>
-                    </div>
-                    <div class="gc-footer-addr-item">
-                        <div class="gc-footer-addr-label"><i class="fa-solid fa-envelope"></i> Email Support:</div>
-                        <div class="gc-footer-addr-val"><a href="mailto:support@brofashion.com">support@brofashion.com</a></div>
-                    </div>
-                    <div class="gc-footer-addr-item">
-                        <div class="gc-footer-addr-label"><i class="fa-solid fa-phone"></i> WhatsApp & Helpline:</div>
-                        <div class="gc-footer-addr-val"><a href="tel:+918320884933">+91 83208 84933</a> / <a href="tel:+919876543210">+91 98765 43210</a></div>
-                    </div>
-                    <div class="gc-footer-addr-item">
-                        <div class="gc-footer-addr-label"><i class="fa-regular fa-clock"></i> Concierge Hours:</div>
-                        <div class="gc-footer-addr-val">Mon – Sat: 10:00 AM – 8:30 PM IST (Sunday Closed)</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="gc-footer-bottom">
-                <div>&copy; 2026 BRO FASHION WORLD. Crafted in Ahmedabad. All Rights Reserved.</div>
-                <div style="display:flex; gap:14px; flex-wrap:wrap;">
-                    <span>100% Certified Mulberry Silk</span>
-                    <span>&bull;</span>
-                    <span>Razorpay & Cash on Delivery</span>
-                    <span>&bull;</span>
-                    <span>7-Day Return / Exchange</span>
-                </div>
-            </div>
-        </footer>
+        
 
     </main>
 
@@ -2927,7 +2951,7 @@
             </div>
 
             <div>
-                <span id="pdp-brand-txt" style="color:#111827; font-size:0.85rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase;">BRO FASHION ATELIER</span>
+                <span id="pdp-brand-txt" style="color:#111827; font-size:0.85rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase;">BRO OUTFIT ATELIER</span>
                 <h1 id="pdp-title-txt" style="font-size:clamp(1.7rem, 3.5vw, 2.3rem); font-weight:900; margin:8px 0 14px; line-height:1.2; color:var(--accent-red);">Garment Title</h1>
                 
                 <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:20px;">
@@ -3062,15 +3086,17 @@
                         3. Payment Mode
                     </strong>
                     <div style="display:flex; flex-direction:column; gap:10px;">
-                        <label style="display:flex; align-items:center; gap:12px; font-weight:800; color:#111827; cursor:pointer;">
-                            <input type="radio" name="chk-payment" value="Cash on Delivery" checked style="accent-color:var(--accent-red);">
-                            <span>💵 Cash on Delivery (Pay upon Handover)</span>
-                        </label>
-                        <label style="display:flex; align-items:center; gap:12px; font-weight:800; color:#111827; cursor:pointer;">
-                            <input type="radio" name="chk-payment" value="Instant UPI / Card" style="accent-color:var(--accent-red);">
-                            <span>⚡ Instant Online UPI / Card Payment (Complimentary Priority Dispatch)</span>
-                        </label>
-                    </div>
+                    <label style="display:flex; align-items:center; gap:12px; font-weight:800; color:#111827; cursor:pointer;">
+                        <input type="radio" name="chk-payment" value="Cash on Delivery" checked style="accent-color:var(--accent-red);">
+                        <span>💵 Cash on Delivery (Pay upon Handover)</span>
+                    </label>
+                    
+                    <!-- Online Payment Disabled (Coming Soon) -->
+                    <label style="display:flex; align-items:center; gap:12px; font-weight:800; color:#9ca3af; cursor:not-allowed;">
+                        <input type="radio" name="chk-payment" value="Instant UPI / Card" disabled>
+                        <span>⚡ Instant Online UPI / Card Payment <span style="background:var(--accent-red-light); color:var(--accent-red); font-size:0.65rem; padding:3px 6px; border-radius:4px; margin-left:6px;">COMING SOON</span></span>
+                    </label>
+                </div>
                 </div>
 
                 <!-- Order Value Summary in Checkout -->
@@ -3121,10 +3147,10 @@
         <div class="admin-modal-card" style="max-width:440px; text-align:center; padding:32px 24px; position:relative;">
             <button onclick="StoreApp.closeAuthGateModal()" id="auth-gate-close-btn" style="position:absolute; top:14px; right:16px; background:none; border:none; font-size:1.5rem; color:#9ca3af; cursor:pointer;">&times;</button>
             <div style="margin-bottom:16px;">
-                <img src="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg" alt="BRO FASHION" style="height:48px; width:auto; object-fit:contain;">
+                <img src="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg" alt="BRO OUTFIT" style="height:48px; width:auto; object-fit:contain;">
             </div>
             <span style="font-size:0.75rem; font-weight:900; color:var(--accent-red); letter-spacing:0.18em; text-transform:uppercase;">VIP PATRON ACCESS</span>
-            <h3 style="font-size:1.4rem; font-weight:900; color:#111827; margin:6px 0 10px;">SIGN IN TO BRO FASHION</h3>
+            <h3 style="font-size:1.4rem; font-weight:900; color:#111827; margin:6px 0 10px;">SIGN IN TO BRO OUTFIT</h3>
             <p id="auth-gate-desc" style="font-size:0.84rem; color:var(--text-secondary); line-height:1.5; margin-bottom:22px;">
                 Enter your mobile number or sign in with Google to explore private atelier drops, save bespoke wardrobe items, and track your consignments live.
             </p>
@@ -3175,7 +3201,7 @@
             <div class="drawer-brand-header">
                 <div>
                     <h3 style="font-size:1.25rem; font-weight:900; color:var(--accent-red);">Patron Dossier</h3>
-                    <div style="font-size:0.68rem; font-weight:800; color:#111827; letter-spacing:0.15em;">BRO FASHION ATELIER</div>
+                    <div style="font-size:0.68rem; font-weight:800; color:#111827; letter-spacing:0.15em;">BRO OUTFIT ATELIER</div>
                 </div>
                 <button class="menu-close-circle" onclick="StoreApp.closeProfileModal()">&times;</button>
             </div>
@@ -3220,9 +3246,10 @@
        ========================================================================== -->
     <div id="admin-portal-view">
         <div class="admin-portal-nav">
-            <div style="display:flex; align-items:center; gap:12px;">
+            <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
                 <span style="color:var(--accent-red); font-size:1.4rem;"><i class="fa-solid fa-shield-halved"></i></span>
-                <strong style="color:var(--accent-red); font-size:1.15rem; letter-spacing:0.1em;">BRO FASHION &bull; ADMIN CONTROL CENTER</strong>
+                <strong style="color:var(--accent-red); font-size:1.15rem; letter-spacing:0.1em;">BRO OUTFIT &bull; ADMIN CONTROL CENTER (brooutfit.com)</strong>
+                <div id="mysql-status-badge" style="display:inline-flex; align-items:center; padding:5px 12px; border-radius:var(--radius-pill); font-size:0.75rem; font-weight:800; border:1px solid #10b981; color:#065f46; background:#ecfdf5;"><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#10b981; margin-right:6px;"></span>Hostinger MySQL: Ready</div>
             </div>
             <button onclick="AdminPortal.close()" class="filter-btn-chip active">
                 Exit to Website &times;
@@ -3240,6 +3267,7 @@
             <span class="admin-tab-chip" onclick="AdminPortal.switchTab('coupons', this)">8. Coupons Manager</span>
             <span class="admin-tab-chip" id="adm-orders-tab-chip" onclick="AdminPortal.switchTab('orders', this)">9. Orders & Live Logistics</span>
             <span class="admin-tab-chip" onclick="AdminPortal.switchTab('users', this)">10. Patrons / Users</span>
+            <span class="admin-tab-chip" onclick="AdminPortal.switchTab('reels', this)">11. Insta Reels</span>
         </div>
 
         <div style="max-width:1380px; margin:0 auto; padding:12px 16px 0; display:flex; justify-content:flex-end; gap:10px; flex-wrap:wrap;">
@@ -3368,6 +3396,12 @@
                     <label>Description:</label>
                     <textarea id="prod-desc" rows="2" class="admin-form-textarea" placeholder="Bespoke Italian tailoring with hand-finished peak lapels.">Precision Italian tailoring with peak lapels.</textarea>
                 </div>
+                <div class="admin-form-group" style="background:var(--bg-surface); padding:10px; border-radius:6px; border:1px solid var(--border-light);">
+                    <label style="display:flex; align-items:center; gap:8px; margin:0; color:#111827; cursor:pointer;">
+                        <input type="checkbox" id="prod-show-home" checked style="width:18px; height:18px; accent-color:var(--accent-red);">
+                        <strong>Show this Garment on Home Page</strong>
+                    </label>
+                </div>
                 <button type="submit" class="pill-btn-wide" style="width:100%;">Save & Sync to Cloud &rarr;</button>
             </form>
         </div>
@@ -3458,22 +3492,34 @@
     </div>
 
     <!-- Category Modal -->
+    <!-- Category Modal -->
     <div class="admin-modal-overlay" id="category-form-modal">
         <div class="admin-modal-card">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; border-bottom:2px solid var(--border-red); padding-bottom:10px;">
-                <h3 style="font-size:1.3rem; font-weight:900; color:var(--accent-red);">Add Category (Syncs to Menu)</h3>
+                <h3 style="font-size:1.3rem; font-weight:900; color:var(--accent-red);">Add Category</h3>
                 <button onclick="AdminPortal.closeCategoryModal()" style="font-size:1.4rem; color:var(--accent-red); cursor:pointer;">&times;</button>
             </div>
             <form onsubmit="event.preventDefault(); AdminPortal.saveCategoryForm();">
                 <div class="admin-form-group">
                     <label>Category Name:</label>
-                    <input type="text" id="cat-name" required class="admin-form-input" placeholder="e.g. Evening Tuxedos, Chanderi Kurtis">
+                    <input type="text" id="cat-name" required class="admin-form-input" placeholder="e.g. Evening Tuxedos">
                 </div>
                 <div class="admin-form-group">
                     <label>Department:</label>
                     <select id="cat-dept" class="admin-form-select"></select>
                 </div>
-                <button type="submit" class="pill-btn-wide" style="width:100%;">Publish Category to Menu &rarr;</button>
+                <!-- નવું Image Field -->
+                <div class="admin-form-group">
+                    <label>Category Image (URL):</label>
+                    <input type="url" id="cat-img" required class="admin-form-input" placeholder="Paste Image Link (Google Drive works too)">
+                </div>
+                <div class="admin-form-group" style="background:var(--bg-surface); padding:10px; border-radius:6px; border:1px solid var(--border-light);">
+                    <label style="display:flex; align-items:center; gap:8px; margin:0; color:#111827; cursor:pointer;">
+                        <input type="checkbox" id="cat-show-home" checked style="width:18px; height:18px; accent-color:var(--accent-red);">
+                        <strong>Show this Category on Home Page</strong>
+                    </label>
+                </div>
+                <button type="submit" class="pill-btn-wide" style="width:100%;">Publish Category &rarr;</button>
             </form>
         </div>
     </div>
@@ -3601,354 +3647,48 @@
             measurementId: "G-D9CRY9ZD6W"
         };
 
-        const DEFAULT_ATELIER_PRODUCTS = [
-            {
-                id: 1,
-                sku: 'GC-BLZ-01',
-                title: 'Oxford Blue Double-Breasted Blazer',
-                brand: 'BRO FASHION ATELIER',
-                gender: 'men',
-                category: 'men-jackets',
-                costPrice: 1800,
-                mrp: 5100,
-                price: 3600,
-                discount: 29,
-                stock: 14,
-                desc: 'Precision Italian stripe weave with gold crest buttons, structured peak lapels, and tailored interior canvassing.',
-                img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800',
-                images: [
-                    'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800',
-                    'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800'
-                ],
-                colors: ['#1e3a8a', '#111827', '#4b5563'],
-                sizes: ['38', '40', '42'],
-                isOffer: true
-            },
-            {
-                id: 2,
-                sku: 'GC-SH-02',
-                title: "Crimson Needle Embroidered Silk Shirt",
-                brand: 'BRO FASHION ATELIER',
-                gender: 'men',
-                category: 'men-shirts',
-                costPrice: 950,
-                mrp: 3000,
-                price: 1890,
-                discount: 37,
-                stock: 22,
-                desc: 'Woven organic linen and mulberry silk with fine botanical crimson needlework across the collar and cuffs.',
-                img: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800',
-                images: [
-                    'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800',
-                    'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800'
-                ],
-                colors: ['#dc2626', '#111827', '#ffffff'],
-                sizes: ['S', 'M', 'L'],
-                isOffer: true
-            },
-            {
-                id: 3,
-                sku: 'GC-J-03',
-                title: '14oz Kurabo Japanese Selvedge Denim',
-                brand: 'BRO FASHION ATELIER',
-                gender: 'men',
-                category: 'men-jeans',
-                costPrice: 1600,
-                mrp: 4500,
-                price: 3200,
-                discount: 28,
-                stock: 18,
-                desc: 'Raw indigo shuttle-loomed Japanese selvedge denim with signature red-line ID edge and solid brass hardware.',
-                img: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800',
-                images: [
-                    'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800',
-                    'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800'
-                ],
-                colors: ['#1e3a8a', '#111827'],
-                sizes: ['30', '32', '34', '36'],
-                isOffer: true
-            },
-            {
-                id: 4,
-                sku: 'GC-W-DR-04',
-                title: 'Scarlet Mulberry Silk Slip Evening Gown',
-                brand: 'BRO FASHION COUTURE',
-                gender: 'women',
-                category: 'women-dresses',
-                costPrice: 2200,
-                mrp: 7500,
-                price: 5490,
-                discount: 26,
-                stock: 8,
-                desc: 'Pure bias-cut mulberry silk with delicate cowl back, French seams, and shimmering scarlet drape.',
-                img: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800',
-                images: [
-                    'https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800',
-                    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800'
-                ],
-                colors: ['#dc2626', '#881337', '#111827'],
-                sizes: ['XS', 'S', 'M'],
-                isOffer: true
-            },
-            {
-                id: 5,
-                sku: 'GC-W-JK-05',
-                title: 'Hourglass Structured Power Blazer',
-                brand: 'BRO FASHION COUTURE',
-                gender: 'women',
-                category: 'women-jackets',
-                costPrice: 1950,
-                mrp: 6200,
-                price: 4350,
-                discount: 30,
-                stock: 12,
-                desc: 'Architectural nipped-waist blazer tailored in heavyweight stretch crepe with satin shawl lapels.',
-                img: 'https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?q=80&w=800',
-                images: [
-                    'https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?q=80&w=800',
-                    'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800'
-                ],
-                colors: ['#111827', '#ffffff', '#dc2626'],
-                sizes: ['S', 'M', 'L'],
-                isOffer: true
-            },
-            {
-                id: 6,
-                sku: 'GC-M-TS-06',
-                title: '300GSM Heavyweight Luxury Boxy Tee',
-                brand: 'BRO FASHION ATELIER',
-                gender: 'men',
-                category: 'men-tshirts',
-                costPrice: 600,
-                mrp: 2400,
-                price: 1490,
-                discount: 38,
-                stock: 35,
-                desc: 'Custom-milled 300GSM combed cotton jersey featuring drop-shoulder architectural fit and high-density ribbed collar.',
-                img: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800',
-                images: [
-                    'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800',
-                    'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=800'
-                ],
-                colors: ['#ffffff', '#111827', '#4b5563'],
-                sizes: ['S', 'M', 'L', 'XL'],
-                isOffer: true
-            },
-            {
-                id: 7,
-                sku: 'GC-ETH-07',
-                title: 'Royal Navratri Raw Silk Embroidered Kurta Set',
-                brand: 'BRO FASHION ATELIER',
-                gender: 'men',
-                category: 'ethnic',
-                costPrice: 1400,
-                mrp: 4800,
-                price: 3450,
-                discount: 28,
-                stock: 20,
-                desc: 'Handcrafted Varanasi raw silk kurta paired with tailored chudidar trousers, embellished with subtle gold and crimson resham thread embroidery.',
-                img: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800',
-                images: [
-                    'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800',
-                    'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800'
-                ],
-                colors: ['#dc2626', '#111827', '#d97706'],
-                sizes: ['38', '40', '42', '44'],
-                isOffer: true
-            },
-            {
-                id: 8,
-                sku: 'GC-RET-08',
-                title: 'Italian Pleated Gurkha Retro Trousers',
-                brand: 'BRO FASHION ATELIER',
-                gender: 'men',
-                category: 'retro-pants',
-                costPrice: 1100,
-                mrp: 3600,
-                price: 2490,
-                discount: 30,
-                stock: 25,
-                desc: 'Double-pleated high-rise tailoring with side-adjuster buckle waistband, crafted from premium Italian stretch wool blend.',
-                img: 'https://images.unsplash.com/photo-1479064555552-3ef4979f8908?q=80&w=800',
-                images: [
-                    'https://images.unsplash.com/photo-1479064555552-3ef4979f8908?q=80&w=800',
-                    'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=800'
-                ],
-                colors: ['#4b5563', '#111827', '#78350f'],
-                sizes: ['30', '32', '34', '36'],
-                isOffer: true
-            },
-            {
-                id: 9,
-                sku: 'GC-CRD-09',
-                title: 'Architectural Silk Linen Resort Co-Ord Set',
-                brand: 'BRO FASHION ATELIER',
-                gender: 'men',
-                category: 'coords',
-                costPrice: 1600,
-                mrp: 4900,
-                price: 3690,
-                discount: 25,
-                stock: 16,
-                desc: 'Camp-collar textured linen shirt with relaxed matching drawstring trousers in refined monochrome ecru.',
-                img: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800',
-                images: [
-                    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800',
-                    'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800'
-                ],
-                colors: ['#f3f4f6', '#111827', '#dc2626'],
-                sizes: ['S', 'M', 'L', 'XL'],
-                isOffer: true
-            },
-            {
-                id: 10,
-                sku: 'GC-TRK-10',
-                title: 'Heavyweight French Terry Pintuck Track Pants',
-                brand: 'BRO FASHION ATELIER',
-                gender: 'men',
-                category: 'track-pants',
-                costPrice: 850,
-                mrp: 2800,
-                price: 1890,
-                discount: 32,
-                stock: 30,
-                desc: '420GSM luxury combed cotton fleece with stitched center pintuck crease, matte hardware, and zippered side pockets.',
-                img: 'https://images.unsplash.com/photo-1552902865-b72c031ac5ea?q=80&w=800',
-                images: [
-                    'https://images.unsplash.com/photo-1552902865-b72c031ac5ea?q=80&w=800',
-                    'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800'
-                ],
-                colors: ['#111827', '#6b7280', '#1e3a8a'],
-                sizes: ['S', 'M', 'L', 'XL'],
-                isOffer: true
-            },
-            {
-                id: 11,
-                sku: 'GC-SHT-11',
-                title: 'Tailored Mulberry Silk Vacation Shorts',
-                brand: 'BRO FASHION ATELIER',
-                gender: 'men',
-                category: 'shorts',
-                costPrice: 700,
-                mrp: 2400,
-                price: 1590,
-                discount: 34,
-                stock: 22,
-                desc: 'Tailored 7-inch inseam luxury resort shorts crafted with woven silk-cotton blend and internal drawcord elastic waistband.',
-                img: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=800',
-                images: [
-                    'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=800'
-                ],
-                colors: ['#111827', '#d97706', '#ffffff'],
-                sizes: ['30', '32', '34', '36'],
-                isOffer: true
-            },
-            {
-                id: 12,
-                sku: 'GC-WNT-12',
-                title: 'Pure Cashmere Double-Breasted Winter Overcoat',
-                brand: 'BRO FASHION COUTURE',
-                gender: 'men',
-                category: 'winter-stuffs',
-                costPrice: 3200,
-                mrp: 11000,
-                price: 7990,
-                discount: 27,
-                stock: 9,
-                desc: 'Sublime Mongolian cashmere and virgin wool blend overcoat with hand-stitched pick-lapels, cupro lining, and horn buttons.',
-                img: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800',
-                images: [
-                    'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800',
-                    'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800'
-                ],
-                colors: ['#111827', '#78350f', '#374151'],
-                sizes: ['38', '40', '42'],
-                isOffer: true
-            },
-            {
-                id: 13,
-                sku: 'GC-ACC-13',
-                title: 'Hand-Crafted Italian Full-Grain Leather Loafers',
-                brand: 'BRO FASHION ATELIER',
-                gender: 'men',
-                category: 'accessories',
-                costPrice: 2100,
-                mrp: 6500,
-                price: 4690,
-                discount: 28,
-                stock: 15,
-                desc: 'Blake-stitched burnished Tuscan calfskin leather penny loafers with hand-painted crimson sole edge and leather lining.',
-                img: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800',
-                images: [
-                    'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800'
-                ],
-                colors: ['#78350f', '#111827'],
-                sizes: ['7', '8', '9', '10'],
-                isOffer: true
-            },
-            {
-                id: 14,
-                sku: 'GC-FUL-14',
-                title: 'Bespoke 3-Piece Silk Velvet Tuxedo Ensemble',
-                brand: 'BRO FASHION COUTURE',
-                gender: 'men',
-                category: 'full-pair',
-                costPrice: 3800,
-                mrp: 14500,
-                price: 9890,
-                discount: 31,
-                stock: 7,
-                desc: 'Architectural 3-piece tuxedo comprising a rich silk velvet shawl jacket, double-breasted vest, and satin-striped trousers.',
-                img: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800',
-                images: [
-                    'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800',
-                    'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800'
-                ],
-                colors: ['#111827', '#dc2626', '#1e3a8a'],
-                sizes: ['38', '40', '42'],
-                isOffer: true
-            }
-        ];
+        // Clean Initial Products (Demo models removed as requested - real inventory syncs from Hostinger MySQL / Admin)
+        const DEFAULT_ATELIER_PRODUCTS = [];
 
         const DEFAULT_CATEGORIES_GRID = [
-            { id: 'full-pair', name: 'Full-Pair', count: '14 Items', img: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=600' },
-            { id: 'bro-trends', name: 'Bro Trends', count: '22 Items', img: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600', badge: 'SPECIAL' },
-            { id: 'ethnic', name: 'Ethnic', count: '18 Items', img: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=600', badge: 'NAVRATRI' },
-            { id: 'men-shirts', name: 'Shirts', count: '35 Items', img: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=600' },
-            { id: 'men-jeans', name: 'Jeans', count: '28 Items', img: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=600' },
-            { id: 'coords', name: 'Co-Ords', count: '16 Items', img: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600' },
-            { id: 'retro-pants', name: 'Retro Pants', count: '19 Items', img: 'https://images.unsplash.com/photo-1479064555552-3ef4979f8908?q=80&w=600' },
-            { id: 'shorts', name: 'Shorts', count: '12 Items', img: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=600' },
-            { id: 'men-tshirts', name: 'T-Shirt', count: '40 Items', img: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600' },
-            { id: 'track-pants', name: 'Track Pants', count: '15 Items', img: 'https://images.unsplash.com/photo-1552902865-b72c031ac5ea?q=80&w=600' },
-            { id: 'winter-stuffs', name: 'Winter Stuffs', count: '25 Items', img: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=600' },
-            { id: 'accessories', name: 'Accessories', count: '20 Items', img: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=600' }
+            { id: 'full-pair', name: 'Full-Pair', count: 'Collections', img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg' },
+            { id: 'bro-trends', name: 'Bro Trends', count: 'Festive', img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg', badge: 'SPECIAL' },
+            { id: 'ethnic', name: 'Ethnic', count: 'Couture', img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg', badge: 'NAVRATRI' },
+            { id: 'men-shirts', name: 'Shirts', count: 'Linens', img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg' },
+            { id: 'men-jeans', name: 'Jeans', count: 'Denim', img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg' },
+            { id: 'coords', name: 'Co-Ords', count: 'Resort Sets', img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg' },
+            { id: 'retro-pants', name: 'Retro Pants', count: 'Trousers', img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg' },
+            { id: 'shorts', name: 'Shorts', count: 'Vacation', img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg' },
+            { id: 'men-tshirts', name: 'T-Shirt', count: 'Boxy & Oversized', img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg' },
+            { id: 'track-pants', name: 'Track Pants', count: 'Heavy Fleece', img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg' },
+            { id: 'winter-stuffs', name: 'Winter Stuffs', count: 'Jackets & Knits', img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg' },
+            { id: 'accessories', name: 'Accessories', count: 'Footwear & Belts', img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg' }
         ];
 
         const DEFAULT_HERO_STRIP = [
             {
                 id: 'hs-1',
-                title: 'NAURTA FESTIVE DROPS',
-                subtitle: 'Garba Edition & Royal Silk Couture',
+                title: 'BRO OUTFIT FESTIVE',
+                subtitle: 'Royal Festive & Wedding Silk Couture',
                 btnText: 'SHOP FESTIVE',
                 linkCat: 'ethnic',
-                img: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=900'
+                img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg'
             },
             {
                 id: 'hs-2',
-                title: 'RETRO ITALIAN LINEN',
-                subtitle: 'Cuban Collars & Pleated Trousers',
+                title: 'RETRO LINEN & TROUSERS',
+                subtitle: 'Cuban Collars & Italian Pleated Trousers',
                 btnText: 'EXPLORE RETRO',
                 linkCat: 'retro-pants',
-                img: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=900'
+                img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg'
             },
             {
                 id: 'hs-3',
-                title: 'DOUBLE-BREASTED SUITS',
-                subtitle: 'Hand-Canvassed Pure Mulberry Wool',
+                title: 'SIGNATURE ENSEMBLES',
+                subtitle: 'Architectural Cuts & Pure Mulberry Wool',
                 btnText: 'BUY BESPOKE',
                 linkCat: 'full-pair',
-                img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=900'
+                img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg'
             },
             {
                 id: 'hs-4',
@@ -3956,23 +3696,23 @@
                 subtitle: '300 GSM Heavyweight Streetwear Drops',
                 btnText: 'SHOP TEES',
                 linkCat: 'men-tshirts',
-                img: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=900'
+                img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg'
             },
             {
                 id: 'hs-5',
                 title: 'RAW SELVEDGE DENIM',
-                subtitle: '14oz Kurabo Japanese Shuttle Loomed',
+                subtitle: 'Shuttle-Loomed Artisan Red-Line Jeans',
                 btnText: 'EXPLORE DENIM',
                 linkCat: 'men-jeans',
-                img: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=900'
+                img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg'
             },
             {
                 id: 'hs-6',
-                title: 'RESORT SILK CO-ORDS',
+                title: 'LUXURY CO-ORD SETS',
                 subtitle: 'Monochrome Flowing Vacation Ensembles',
                 btnText: 'EXPLORE CO-ORDS',
                 linkCat: 'coords',
-                img: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=900'
+                img: 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg'
             }
         ];
 
@@ -4045,6 +3785,7 @@
                 { id: 'men', name: "Men's Atelier" },
                 { id: 'women', name: "Women's Couture" }
             ],
+            reels: [],
             categories: [
                 { id: 'full-pair', name: 'Full-Pair Sets', dept: 'men' },
                 { id: 'bro-trends', name: 'Bro Trends & Festive', dept: 'men' },
@@ -4065,7 +3806,7 @@
             heroBanners: [
                 {
                     id: 1,
-                    eyebrow: "BRO FASHION WORLD",
+                    eyebrow: "BRO OUTFIT WORLD",
                     headline: "HAUTE COUTURE 2026",
                     subhead: "Architectural Cut Tailoring & Pure Mulberry Silk",
                     img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1600"
@@ -4096,9 +3837,12 @@
             currentPDPImageIndex: 0,
             touchStartX: 0,
             touchEndX: 0,
+            apiBase: 'api.php',
+            isMySQLLive: false,
 
             init() {
                 this.loadLocalData();
+                this.syncWithMySQL(); // Load dynamic products & orders from Hostinger MySQL
                 this.initFirebase(); // Pehla firebase load karo
                 this.loadCloudData(); // Pachi cloud mathi real data laavo
                 
@@ -4120,13 +3864,80 @@
                 this.showWelcomeEntrance();
             },
 
+            // ૧. રીલ્સ બતાવવાનું નવું ફંક્શન (MP4 / Google Drive Video માટે)
+            renderInstaReels() {
+                const container = document.getElementById('reels-grid-container');
+                const section = document.getElementById('home-reels-section');
+                if (!container || !section) return;
+
+                if (!DB.reels || DB.reels.length === 0) {
+                    section.style.display = 'none';
+                    return;
+                }
+                
+                section.style.display = 'block';
+                container.innerHTML = DB.reels.map((url, idx) => {
+                    
+                    // જો લિંક ઇન્સ્ટાગ્રામની હોય (જેમાં ઓટોપ્લે સપોર્ટ નથી કરતું)
+                    if (url.includes('instagram.com')) {
+                        const cleanUrl = url.split('?')[0].replace(/\/$/, ''); 
+                        const embedUrl = cleanUrl + '/embed/captioned/'; 
+                        return `
+                            <div style="width:320px; height:540px; flex-shrink:0; border-radius:12px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.1); border:1.5px solid var(--border-light); background:#ffffff;">
+                                <iframe src="${embedUrl}" width="320" height="540" frameborder="0" scrolling="no" allowtransparency="true" allow="encrypted-media"></iframe>
+                            </div>
+                        `;
+                    } 
+                    // જો લિંક Google Drive અથવા MP4 હોય (જેમાં 100% ઓટોપ્લે અને મ્યુટ/અનમ્યુટ કામ કરશે)
+                    else {
+                        let vidUrl = url;
+                        const match = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+                        if (match && match[1]) {
+                            vidUrl = 'https://drive.google.com/uc?export=download&id=' + match[1];
+                        }
+                        return `
+                            <div style="width:320px; height:540px; flex-shrink:0; border-radius:12px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.1); border:1.5px solid var(--border-light); position:relative; cursor:pointer; background:#000;" onclick="StoreApp.toggleVideoSound(this)">
+                                <!-- Autoplay, Loop અને Muted વિડિઓ -->
+                                <video src="${vidUrl}" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover; pointer-events:none;"></video>
+                                
+                                <!-- અવાજ ચાલુ/બંધ કરવાનો આઈકન -->
+                                <div class="reel-sound-icon" style="position:absolute; bottom:16px; right:16px; background:rgba(0,0,0,0.6); color:#fff; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; pointer-events:none; border:1px solid rgba(255,255,255,0.3); transition:0.3s;">
+                                    <i class="fa-solid fa-volume-xmark"></i>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }).join('');
+            },
+
+            // ક્લિક કરવા પર અવાજ ચાલુ/બંધ કરવાનું લોજીક (માત્ર MP4 / Drive વિડિઓ માટે)
+            toggleVideoSound(containerElem) {
+                const video = containerElem.querySelector('video');
+                const icon = containerElem.querySelector('.reel-sound-icon i');
+                if (!video) return;
+                
+                if (video.muted) {
+                    video.muted = false;
+                    icon.className = "fa-solid fa-volume-high"; // અવાજ ચાલુ આઈકન
+                    containerElem.querySelector('.reel-sound-icon').style.background = "var(--accent-red)";
+                } else {
+                    video.muted = true;
+                    icon.className = "fa-solid fa-volume-xmark"; // અવાજ બંધ આઈકન
+                    containerElem.querySelector('.reel-sound-icon').style.background = "rgba(0,0,0,0.6)";
+                }
+            },
+
             loadLocalData() {
                 try {
                     const local = localStorage.getItem('BROFASHION_STORE_V6');
                     if (local) {
                         const parsed = JSON.parse(local);
-                        if (parsed.products && parsed.products.length > 0) DB.products = parsed.products;
-                        else DB.products = [...DEFAULT_ATELIER_PRODUCTS];
+                        if (parsed.products && parsed.products.length > 0) {
+                            // Purge legacy dummy model products
+                            DB.products = parsed.products.filter(p => !p.sku || !p.sku.startsWith('GC-'));
+                        } else {
+                            DB.products = [...DEFAULT_ATELIER_PRODUCTS];
+                        }
                         if (parsed.departments && parsed.departments.length > 0) DB.departments = parsed.departments;
                         if (parsed.categories && parsed.categories.length > 0) DB.categories = parsed.categories;
                         if (parsed.heroBanners && parsed.heroBanners.length > 0) DB.heroBanners = parsed.heroBanners;
@@ -4149,36 +3960,91 @@
                 }
             },
 
+            async syncWithMySQL() {
+                try {
+                    const testRes = await fetch(this.apiBase + '?action=test_db');
+                    if (!testRes.ok) throw new Error('Hostinger API offline or local mode');
+                    const testData = await testRes.json();
+                    
+                    if (testData.success) {
+                        this.isMySQLLive = true;
+                        const badge = document.getElementById('mysql-status-badge');
+                        if (badge) {
+                            badge.style.background = '#ecfdf5';
+                            badge.style.color = '#065f46';
+                            badge.style.borderColor = '#10b981';
+                            badge.innerHTML = `<span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#10b981; margin-right:6px;"></span>Hostinger MySQL: Connected (${testData.database})`;
+                        }
+
+                        // 1. Load dynamic products from MySQL
+                        const prodRes = await fetch(this.apiBase + '?action=get_products');
+                        const prodData = await prodRes.json();
+                        if (prodData.success && Array.isArray(prodData.products)) {
+                            if (prodData.products.length > 0) {
+                                DB.products = prodData.products;
+                                this.render2ColGrid(DB.products, 'home-2col-grid');
+                                this.filterSpotlight('all');
+                                this.renderCoverflow();
+                            }
+                        }
+
+                        // 2. Load dynamic orders from MySQL
+                        const ordRes = await fetch(this.apiBase + '?action=get_orders');
+                        const ordData = await ordRes.json();
+                        if (ordData.success && Array.isArray(ordData.orders) && ordData.orders.length > 0) {
+                            DB.orders = ordData.orders.map(o => ({
+                                id: o.id,
+                                orderNo: o.orderNo,
+                                userName: o.customer_name,
+                                userPhone: o.customer_phone,
+                                userEmail: o.customer_email,
+                                address: o.full_address,
+                                city: o.city,
+                                state: o.state,
+                                pincode: o.pincode,
+                                subtotal: o.subtotal,
+                                discount: o.discount,
+                                total: o.total,
+                                paymentMethod: o.payment_method,
+                                status: o.order_status,
+                                items: o.items || [],
+                                createdAt: o.created_at
+                            }));
+                        }
+
+                        // 3. Load dynamic coupons from MySQL
+                        const coupRes = await fetch(this.apiBase + '?action=get_coupons');
+                        const coupData = await coupRes.json();
+                        if (coupData.success && Array.isArray(coupData.coupons) && coupData.coupons.length > 0) {
+                            DB.coupons = coupData.coupons;
+                        }
+                    }
+                } catch(e) {
+                    const badge = document.getElementById('mysql-status-badge');
+                    if (badge) {
+                        badge.style.background = '#fffbeb';
+                        badge.style.color = '#92400e';
+                        badge.style.borderColor = '#f59e0b';
+                        badge.innerHTML = `<span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#f59e0b; margin-right:6px;"></span>Hostinger MySQL: Local/Standby (localStorage active)`;
+                    }
+                }
+            },
+
             saveData() {
                 try {
-                    // Local backup
                     localStorage.setItem('BROFASHION_STORE_V6', JSON.stringify({
-                        products: DB.products,
-                        departments: DB.departments,
-                        categories: DB.categories,
-                        heroBanners: DB.heroBanners,
-                        coupons: DB.coupons,
-                        reviews: DB.reviews,
-                        orders: DB.orders,
-                        users: DB.users
+                        products: DB.products, departments: DB.departments, categories: DB.categories,
+                        heroBanners: DB.heroBanners, coupons: DB.coupons, reviews: DB.reviews,
+                        orders: DB.orders, users: DB.users, reels: DB.reels // અહીયા reels હોવું જોઈએ
                     }));
 
-                    // Firebase ma live save karva mate (tamari image pramane)
                     if (this.db) {
                         this.db.collection("brofashion_store").doc("catalog").set({
-                            products: DB.products,
-                            departments: DB.departments,
-                            categories: DB.categories,
-                            heroBanners: DB.heroBanners,
-                            coupons: DB.coupons,
-                            reviews: DB.reviews,
-                            orders: DB.orders,
-                            users: DB.users
-                        }, { merge: true }).then(() => {
-                            console.log("Firebase ma data live thai gayo!");
-                        }).catch((error) => {
-                            console.error("Firebase Error: ", error);
-                        });
+                            products: DB.products, departments: DB.departments, categories: DB.categories,
+                            heroBanners: DB.heroBanners, coupons: DB.coupons, reviews: DB.reviews,
+                            orders: DB.orders, users: DB.users, 
+                            reels: DB.reels || [] // Firebase માં લાઈવ સેવ કરવા
+                        }, { merge: true });
                     }
                 } catch(e){}
             },
@@ -4303,9 +4169,22 @@
                 }
                 DB.currentUser = user;
                 this.saveData();
+
+                // Sync user auth to Hostinger MySQL
+                fetch(this.apiBase + '?action=user_auth', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        phone: '+91 ' + phone,
+                        name: user.name,
+                        email: user.email || '',
+                        provider: user.provider || 'Mobile Number'
+                    })
+                }).catch(err => console.log('MySQL user sync note:', err));
+
                 this.updatePatronUI();
                 this.closeAuthGateModal();
-                this.showToast("Welcome to Bro Fashion World, " + user.name + "!");
+                this.showToast("Welcome to BRO OUTFIT, " + user.name + "!");
             },
 
             // --- PATRON REVIEWS & SATISFACTION METRICS ---
@@ -4408,7 +4287,7 @@
                 if (!items || items.length === 0) {
                     container.innerHTML = `
                         <div style="grid-column:1/-1; text-align:center; padding:45px 20px; background:#ffffff; border-radius:var(--radius-lg); border:2px solid var(--border-red); box-shadow:var(--shadow-card);">
-                            <img src="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg" alt="BRO FASHION" style="height:36px; margin-bottom:12px; object-fit:contain;">
+                            <img src="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg" alt="BRO OUTFIT" style="height:36px; margin-bottom:12px; object-fit:contain;">
                             <h4 style="font-size:1.15rem; font-weight:900; color:var(--accent-red); margin-bottom:6px;">Atelier Collection Loading</h4>
                             <p style="font-size:0.84rem; color:#4b5563; margin-bottom:16px;">No garments published in this department yet. Add your bespoke garments via Admin Portal.</p>
                             <button class="pill-btn-wide" onclick="AdminPortal.open()">Open Admin Portal &rarr;</button>
@@ -4721,11 +4600,48 @@
                 if (DB.appliedCoupon) {
                     discount = (DB.appliedCoupon.type === 'percent') ? Math.round((subtotal * DB.appliedCoupon.val) / 100) : DB.appliedCoupon.val;
                 }
-                const finalTotal = Math.max(0, subtotal - discount);
+                
+                // Luxury Packaging Charge (e.g. ₹99)
+                const packagingCharge = subtotal > 0 ? 99 : 0;
+                const finalTotal = Math.max(0, subtotal - discount) + packagingCharge;
 
-                if (subtotalElem) subtotalElem.innerText = `₹${subtotal.toLocaleString('en-IN')}`;
-                if (discountElem) discountElem.innerText = `- ₹${discount.toLocaleString('en-IN')}`;
-                if (totalElem) totalElem.innerText = `₹${finalTotal.toLocaleString('en-IN')}`;
+                // Detailed Bill UI
+                let billHTML = `
+                    <div style="display:flex; justify-content:space-between; font-size:1rem; font-weight:700; margin-bottom:8px;">
+                        <span>Bag Value:</span>
+                        <span>₹${subtotal.toLocaleString('en-IN')}</span>
+                    </div>
+                `;
+                
+                if (discount > 0) {
+                    billHTML += `
+                    <div style="display:flex; justify-content:space-between; font-size:1rem; font-weight:700; color:#10b981; margin-bottom:8px;">
+                        <span>Promotional Discount:</span>
+                        <span>- ₹${discount.toLocaleString('en-IN')}</span>
+                    </div>`;
+                }
+
+                billHTML += `
+                    <div style="display:flex; justify-content:space-between; font-size:1rem; font-weight:700; color:#4b5563; margin-bottom:16px;">
+                        <span>Luxury Packaging & Handling:</span>
+                        <span>+ ₹${packagingCharge}</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:900; margin-bottom:24px; border-top:1px solid var(--border-light); padding-top:12px;">
+                        <span>Final Payable:</span>
+                        <span style="color:var(--accent-red);">₹${finalTotal.toLocaleString('en-IN')}</span>
+                    </div>
+                `;
+
+                // Update UI
+                const billContainer = document.getElementById('cart-bill-container');
+                if (billContainer) {
+                    billContainer.innerHTML = billHTML;
+                } else {
+                    // Fallback jo old HTML structure hoy
+                    if (subtotalElem) subtotalElem.innerText = `₹${subtotal.toLocaleString('en-IN')}`;
+                    if (discountElem) discountElem.innerText = `- ₹${discount.toLocaleString('en-IN')}`;
+                    if (totalElem) totalElem.innerText = `₹${finalTotal.toLocaleString('en-IN')}`;
+                }
             },
 
             applyCoupon() {
@@ -4791,8 +4707,8 @@
                 const fname = document.getElementById('chk-fname')?.value.trim() || '';
                 const lname = document.getElementById('chk-lname')?.value.trim() || '';
                 const fullName = (fname + ' ' + lname).trim() || (DB.currentUser ? DB.currentUser.name : 'VIP Patron');
-                const userPhone = document.getElementById('chk-phone')?.value.trim() || (DB.currentUser ? DB.currentUser.phone : '+91 98765 43210');
-                const userEmail = document.getElementById('chk-email')?.value.trim() || (DB.currentUser ? DB.currentUser.email : 'patron@brofashion.com');
+                const userPhone = document.getElementById('chk-phone')?.value.trim() || '';
+                const userEmail = document.getElementById('chk-email')?.value.trim() || '';
                 
                 const house = document.getElementById('chk-house')?.value.trim() || '';
                 const street = document.getElementById('chk-street')?.value.trim() || '';
@@ -4812,69 +4728,121 @@
                 if (DB.appliedCoupon) {
                     discount = (DB.appliedCoupon.type === 'percent') ? Math.round((subtotal * DB.appliedCoupon.val) / 100) : DB.appliedCoupon.val;
                 }
-                const total = Math.max(0, subtotal - discount);
+                const packagingCharge = 99; // Bill ma add karelu
+                const total = Math.max(0, subtotal - discount) + packagingCharge;
                 const orderId = Math.floor(10000 + Math.random() * 90000);
 
                 const dispatchD = new Date(Date.now() + 86400000 * 2).toISOString().slice(0, 10);
                 const deliveryD = new Date(Date.now() + 86400000 * 5).toISOString().slice(0, 10);
 
-                const newOrder = {
-                    id: orderId,
-                    orderNo: `BRO-${orderId}`,
-                    userName: fullName,
-                    userPhone: userPhone,
-                    userEmail: userEmail,
-                    house: house,
-                    street: street,
-                    landmark: landmark,
-                    city: city,
-                    state: state,
-                    pin: pin,
-                    address: fullAddress,
-                    notes: notes,
-                    paymentMethod: paymentMethod,
-                    total: total,
-                    costTotal: Math.floor(total * 0.45),
-                    status: 'Confirmed',
-                    dispatchDate: dispatchD,
-                    deliveryDate: deliveryD,
-                    courier: 'BlueDart Express',
-                    trackingNo: `BD-${orderId}`,
-                    isNewOrder: true,
-                    items: DB.cart.map(c => ({
-                        title: c.title,
-                        img: c.img,
-                        price: c.price,
-                        selectedSize: c.selectedSize || 'Standard',
-                        selectedColor: c.selectedColor || '',
-                        qty: c.qty || 1
-                    })),
-                    createdAt: new Date().toISOString()
+                // Final Order Save Karvanu Function
+                const placeFinalOrder = (orderStatus, paymentId = null) => {
+                    const newOrder = {
+                        id: orderId,
+                        orderNo: `BRO-${orderId}`,
+                        userName: fullName,
+                        userPhone: userPhone,
+                        userEmail: userEmail,
+                        address: fullAddress,
+                        notes: notes,
+                        paymentMethod: paymentMethod,
+                        razorpayId: paymentId,
+                        packagingCharge: packagingCharge,
+                        total: total,
+                        costTotal: Math.floor(total * 0.45),
+                        status: orderStatus, // 'Pending (COD)' ke 'Confirmed (Paid)' aavse
+                        dispatchDate: dispatchD,
+                        deliveryDate: deliveryD,
+                        courier: 'BlueDart Express',
+                        trackingNo: `BD-${orderId}`,
+                        isNewOrder: true,
+                        items: DB.cart.map(c => ({
+                            title: c.title, img: c.img, price: c.price,
+                            selectedSize: c.selectedSize || 'Standard',
+                            selectedColor: c.selectedColor || '',
+                            qty: c.qty || 1
+                        })),
+                        createdAt: new Date().toISOString()
+                    };
+
+                    DB.orders.unshift(newOrder);
+
+                    // Write order directly to Hostinger MySQL
+                    fetch(this.apiBase + '?action=create_order', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            orderNo: newOrder.orderNo,
+                            customer_name: fullName,
+                            customer_phone: userPhone,
+                            customer_email: userEmail,
+                            full_address: fullAddress,
+                            city: city,
+                            state: state,
+                            pincode: pin,
+                            subtotal: subtotal,
+                            discount: discount,
+                            total: total,
+                            payment_method: paymentMethod,
+                            payment_status: paymentMethod === 'Cash on Delivery' ? 'Pending' : 'Paid',
+                            items: newOrder.items
+                        })
+                    }).then(r => r.json()).then(res => {
+                        if (res && res.success && res.orderId) {
+                            newOrder.id = res.orderId;
+                            StoreApp.saveData();
+                        }
+                    }).catch(err => console.log('MySQL order sync note:', err));
+
+                    if (DB.currentUser) {
+                        DB.currentUser.ordersCount = (DB.currentUser.ordersCount || 0) + 1;
+                        const u = DB.users.find(x => x.id === DB.currentUser.id || (x.phone && x.phone === DB.currentUser.phone));
+                        if (u) u.ordersCount = DB.currentUser.ordersCount;
+                    }
+
+                    DB.cart = [];
+                    DB.appliedCoupon = null;
+                    this.updateCartBadge();
+                    this.playWelcomeChime();
+                    this.saveData();
+
+                    const ordersChip = document.getElementById('adm-orders-tab-chip');
+                    if (ordersChip) ordersChip.innerHTML = '9. Orders & Live Logistics <span style="background:#ef4444; color:#fff; font-size:0.68rem; padding:2px 6px; border-radius:10px; margin-left:4px;">NEW!</span>';
+
+                    this.showToast(`Consignment #${newOrder.orderNo} ${orderStatus}!`);
+                    this.switchView('orders-view');
                 };
 
-                DB.orders.unshift(newOrder);
-
-                // Update patron order count
-                if (DB.currentUser) {
-                    DB.currentUser.ordersCount = (DB.currentUser.ordersCount || 0) + 1;
-                    const u = DB.users.find(x => x.id === DB.currentUser.id || (x.phone && x.phone === DB.currentUser.phone));
-                    if (u) u.ordersCount = DB.currentUser.ordersCount;
+                // Payment Mode Check
+                if (paymentMethod === 'Cash on Delivery') {
+                    // COD mate status Pending rakhyu
+                    placeFinalOrder('Pending (COD Payment)');
+                } else {
+                    // Razorpay Online Payment Flow
+                    var options = {
+                        "key": "rzp_test_YourDummyKeyHere", // Tamari Razorpay Test/Live Key ahiya nakho
+                        "amount": total * 100, // Paise ma convert
+                        "currency": "INR",
+                        "name": "BRO OUTFIT",
+                        "description": "Luxury Atelier Acquisition",
+                        "image": "bro_logo.jpg",
+                        "handler": function (response) {
+                            // Payment success thaya pachi Confirmed status
+                            placeFinalOrder('Confirmed (Paid Online)', response.razorpay_payment_id);
+                        },
+                        "prefill": {
+                            "name": fullName,
+                            "email": userEmail,
+                            "contact": userPhone
+                        },
+                        "theme": { "color": "#dc2626" }
+                    };
+                    var rzp1 = new window.Razorpay(options);
+                    rzp1.on('payment.failed', function (response){
+                        StoreApp.showToast("⚠️ Payment Failed! Please try again.");
+                    });
+                    rzp1.open();
                 }
-
-                DB.cart = [];
-                DB.appliedCoupon = null;
-                this.updateCartBadge();
-                this.playWelcomeChime();
-                this.saveData();
-
-                // Alert Admin badge
-                const ordersChip = document.getElementById('adm-orders-tab-chip');
-                if (ordersChip) {
-                    ordersChip.innerHTML = '9. Orders & Live Logistics <span style="background:#ef4444; color:#fff; font-size:0.68rem; padding:2px 6px; border-radius:10px; margin-left:4px;">NEW!</span>';
-                }
-
-                this.showToast(`Consignment #${newOrder.orderNo} Confirmed! White-glove preparation commenced.`);
-                this.switchView('orders-view');
             },
 
             setupCheckoutView() {
@@ -4888,9 +4856,16 @@
                 if (DB.appliedCoupon) {
                     discount = (DB.appliedCoupon.type === 'percent') ? Math.round((subtotal * DB.appliedCoupon.val) / 100) : DB.appliedCoupon.val;
                 }
-                const finalTotal = Math.max(0, subtotal - discount);
+                const packagingCharge = 99; // Packaging charge
+                const finalTotal = Math.max(0, subtotal - discount) + packagingCharge;
+                
                 const totalEl = document.getElementById('chk-final-total');
-                if (totalEl) totalEl.innerText = `₹${finalTotal.toLocaleString('en-IN')}`;
+                if (totalEl) totalEl.innerHTML = `
+                    <div style="text-align:right;">
+                        <div style="font-size:0.85rem; color:#6b7280; font-weight:600; margin-bottom:4px;">(Incl. ₹99 Packaging)</div>
+                        ₹${finalTotal.toLocaleString('en-IN')}
+                    </div>
+                `;
 
                 // Prefill user details if logged in
                 if (DB.currentUser) {
@@ -4921,7 +4896,7 @@
                 if (!DB.orders || DB.orders.length === 0) {
                     container.innerHTML = `
                         <div style="text-align:center; padding:60px 20px; background:#ffffff; border-radius:var(--radius-lg); border:2px solid var(--border-light);">
-                            <img src="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg" alt="BRO FASHION" style="height:44px; margin-bottom:14px; object-fit:contain;">
+                            <img src="https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg" alt="BRO OUTFIT" style="height:44px; margin-bottom:14px; object-fit:contain;">
                             <h3 style="font-size:1.4rem; font-weight:900; color:var(--text-primary); margin-bottom:8px;">No Consignments Yet</h3>
                             <p style="color:var(--text-secondary); margin-bottom:24px;">You have not placed any orders yet. Explore our latest drops and order with complimentary handover.</p>
                             <button class="pill-btn-wide" onclick="StoreApp.openCategory('all')">Explore Haute Drops &rarr;</button>
@@ -5114,7 +5089,6 @@
                 };
             },
 
-            // --- HERO EDITORIAL BANNERS ---
             renderHeroBanners() {
                 const container = document.getElementById('hero-slides-container');
                 const dots = document.getElementById('hero-indicators-bar');
@@ -5126,13 +5100,7 @@
                     const isAct = idx === this.currentHeroIndex;
                     container.innerHTML += `
                         <div class="hero-slide ${isAct ? 'active' : ''}">
-                            <img src="${b.img}" class="hero-slide-bg" alt="${b.headline}">
-                            <div class="hero-slide-overlay"></div>
-                            <div class="hero-slide-content">
-                                <span class="hero-eyebrow">${b.eyebrow || 'BRO FASHION WORLD'}</span>
-                                <h2 class="hero-headline">${b.headline}</h2>
-                                <p class="hero-subhead">${b.subhead}</p>
-                            </div>
+                            <img src="${b.img}" class="hero-slide-bg" alt="Banner Image">
                         </div>
                     `;
                     dots.innerHTML += `<span class="hero-dot ${isAct ? 'active' : ''}" onclick="StoreApp.setHeroSlide(${idx})"></span>`;
@@ -5159,21 +5127,6 @@
                     </div>
                 `).join('');
             },
-
-            renderCategoriesGrid() {
-                const grid = document.getElementById('gc-category-grid-container');
-                if (!grid) return;
-                grid.innerHTML = DEFAULT_CATEGORIES_GRID.map(cat => `
-                    <div class="gc-cat-card" onclick="StoreApp.openCategory('${cat.id}')">
-                        <div class="gc-cat-thumb-box">
-                            <img src="${cat.img}" alt="${cat.name}" loading="lazy">
-                            ${cat.badge ? `<span style="position:absolute; top:8px; right:8px; background:var(--accent-red); color:#fff; font-size:0.6rem; font-weight:900; padding:2px 6px; border-radius:4px; letter-spacing:0.05em;">${cat.badge}</span>` : ''}
-                        </div>
-                        <div class="gc-cat-label">${cat.name}</div>
-                    </div>
-                `).join('');
-            },
-
             renderFestivalGrid() {
                 const grid = document.getElementById('home-festival-grid');
                 if (!grid) return;
@@ -5195,30 +5148,26 @@
                 setTimeout(() => {
                     document.getElementById('categories-section')?.scrollIntoView({ behavior: 'smooth' });
                 }, 60);
+                this.closeDrawerMenu();
             },
             scrollToFestival() {
                 this.switchView('home-view');
                 setTimeout(() => {
                     document.getElementById('festival-drops-section')?.scrollIntoView({ behavior: 'smooth' });
                 }, 60);
+                this.closeDrawerMenu();
             },
             scrollToAbout() {
-                this.switchView('home-view');
-                setTimeout(() => {
-                    document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' });
-                }, 60);
+                this.switchView('about-view');
+                this.closeDrawerMenu();
             },
             scrollToFAQ() {
-                this.switchView('home-view');
-                setTimeout(() => {
-                    document.getElementById('faq-section')?.scrollIntoView({ behavior: 'smooth' });
-                }, 60);
+                this.switchView('faq-view'); // Menu mathi FAQ khulse
+                this.closeDrawerMenu();
             },
             scrollToReviews() {
-                this.switchView('home-view');
-                setTimeout(() => {
-                    document.getElementById('patron-reviews-section')?.scrollIntoView({ behavior: 'smooth' });
-                }, 60);
+                this.switchView('reviews-view');
+                this.closeDrawerMenu();
             },
 
             // --- CATEGORIES & MENU SYNC ---
@@ -5257,29 +5206,120 @@
                     if (header) header.classList.add('expanded');
                 }
             },
+            // 1. Category click thaya pachi ALAG PAGE (Shop View) kholva mate
             openCategory(catId) {
-                if (catId === 'all') {
-                    this.render2ColGrid(DB.products, 'home-2col-grid');
-                    this.switchView('home-view');
-                    setTimeout(() => {
-                        document.getElementById('home-2col-grid')?.scrollIntoView({ behavior: 'smooth' });
-                    }, 50);
-                    return;
-                }
                 let filtered = [];
-                if (catId === 'men' || catId === 'women') {
+                if (catId === 'all') {
+                    filtered = DB.products;
+                } else if (catId === 'men' || catId === 'women') {
                     filtered = DB.products.filter(p => p.gender === catId);
                 } else {
-                    filtered = DB.products.filter(p => p.category === catId || (p.categories && p.categories.includes(catId)) || (p.tags && p.tags.includes(catId)) || (p.title && p.title.toLowerCase().includes(catId.toLowerCase())));
+                    filtered = DB.products.filter(p => p.category === catId || (p.categories && p.categories.includes(catId)));
                 }
-                if (filtered.length === 0) {
-                    filtered = DB.products;
+                if (filtered.length === 0) filtered = DB.products;
+
+                // Shop view ma render karo (Home ma nahi)
+                this.render2ColGrid(filtered, 'catalog-2col-grid');
+                
+                // Count update karo
+                const countLbl = document.getElementById('catalog-count-label');
+                if(countLbl) countLbl.innerText = `${filtered.length} garments found`;
+
+                // Alag Page (Shop View) kholo
+                this.switchView('shop-view');
+            },
+
+            // 2. Category grid ma khali Show on Home tick hoy tej batave
+            renderCategoriesGrid() {
+                const grid = document.getElementById('gc-category-grid-container');
+                if (!grid) return;
+                
+                // Jema showOnHome false nathi e j dekhase
+                const homeCategories = DB.categories.filter(c => c.showOnHome !== false);
+                
+                grid.innerHTML = homeCategories.map(cat => `
+                    <div class="gc-cat-card" onclick="StoreApp.openCategory('${cat.id}')">
+                        <div class="gc-cat-thumb-box">
+                            <img src="${cat.img || 'https://github.com/heren-vansh/Business-Empire/releases/download/LOGO/bro_logo.jpg'}" alt="${cat.name}" loading="lazy">
+                        </div>
+                        <div class="gc-cat-label">${cat.name}</div>
+                    </div>
+                `).join('');
+            },
+
+            // 3. Admin Product Save (Checkbox ni value save karva)
+            saveProductForm() {
+                const editId = document.getElementById('prod-edit-id').value;
+                const title = document.getElementById('prod-title').value.trim();
+                const gender = document.getElementById('prod-gender').value;
+                const category = document.getElementById('prod-category').value;
+                const price = parseInt(document.getElementById('prod-price').value) || 2990;
+                const mrp = parseInt(document.getElementById('prod-mrp').value) || 4990;
+                const cost = parseInt(document.getElementById('prod-cost').value) || 1500;
+                const stock = parseInt(document.getElementById('prod-stock').value) || 10;
+                const sizes = document.getElementById('prod-sizes').value.split(',').map(s => s.trim()).filter(Boolean);
+                const desc = document.getElementById('prod-desc').value.trim();
+                const discount = Math.round(((mrp - price) / mrp) * 100);
+                
+                // CHECKBOX VALUE CAPTURE KARO
+                const showOnHome = document.getElementById('prod-show-home').checked;
+
+                if (this.currentImages.length < 2) {
+                    alert("Please provide at least 2 photos for this garment!");
+                    return;
                 }
-                this.render2ColGrid(filtered, 'home-2col-grid');
-                this.switchView('home-view');
-                setTimeout(() => {
-                    document.getElementById('home-2col-grid')?.scrollIntoView({ behavior: 'smooth' });
-                }, 50);
+
+                const images = [...this.currentImages];
+                const img = images[0];
+                const colors = this.currentColors.length > 0 ? [...this.currentColors] : ['#dc2626', '#111827'];
+                const skuCode = editId ? (DB.products.find(p => p.id == editId)?.sku || ('BRO-' + Math.floor(Math.random() * 9000))) : ('BRO-' + Math.floor(Math.random() * 9000));
+                const brandName = gender === 'women' ? 'BRO OUTFIT COUTURE' : 'BRO OUTFIT ATELIER';
+
+                const productObj = {
+                    id: editId ? parseInt(editId) : Date.now(),
+                    sku: skuCode,
+                    title, gender, category, price, mrp, costPrice: cost, stock, sizes, img, images, colors, desc, discount,
+                    brand: brandName,
+                    isOffer: true,
+                    showOnHome: showOnHome // DB MA SAVE THASE
+                };
+
+                if (editId) {
+                    const idx = DB.products.findIndex(p => p.id == editId);
+                    if (idx > -1) DB.products[idx] = productObj;
+                } else {
+                    DB.products.unshift(productObj);
+                }
+
+                StoreApp.saveData();
+                StoreApp.renderCoverflow();
+                // Home page ma khali showOnHome vara j dekhadse
+                StoreApp.render2ColGrid(DB.products.filter(p => p.showOnHome !== false), 'home-2col-grid');
+                this.closeProductModal();
+                this.switchTab('products');
+                StoreApp.showToast("Garment Published Live!");
+            },
+
+            // 4. Admin Category Save (Checkbox ni value save karva)
+            saveCategoryForm() {
+                const name = document.getElementById('cat-name').value.trim();
+                const dept = document.getElementById('cat-dept').value;
+                let rawImg = document.getElementById('cat-img').value.trim();
+                const img = convertGoogleDriveLink(rawImg);
+                
+                // CHECKBOX VALUE CAPTURE KARO
+                const showOnHome = document.getElementById('cat-show-home').checked;
+
+                const id = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+                DB.categories.push({ id, name, dept, img, showOnHome });
+                StoreApp.saveData();
+                StoreApp.syncCategoriesToMenu();
+                StoreApp.renderCategoriesGrid(); // Home Page tarat update thase
+                
+                this.closeCategoryModal();
+                this.switchTab('categories');
+                StoreApp.showToast(`Category "${name}" Added Live!`);
             },
             openDrawerMenu() {
                 document.getElementById('structured-menu-overlay')?.classList.add('active');
@@ -5361,7 +5401,8 @@
                             measurementId: "G-D9CRY9ZD6W"
                         });
                     }
-                    this.db = firebase.firestore(); // Firestore chalu karva mate
+                    this.db = firebase.firestore(); 
+                    this.storage = firebase.storage(); // આ નવી લાઈન ઉમેરવાની છે (Firebase Storage માટે)
                 } catch(e) {
                     console.error("Firebase load nathi thayu:", e);
                 }
@@ -5632,7 +5673,7 @@
                     DB.cart = [];
                     DB.appliedCoupon = null;
                     StoreApp.saveData();
-                    StoreApp.render2ColGrid(DB.products, 'home-2col-grid');
+                    StoreApp.render2ColGrid(DB.products.filter(p => p.showOnHome !== false), 'home-2col-grid');
                     StoreApp.filterSpotlight('all');
                     StoreApp.renderCoverflow();
                     StoreApp.syncCategoriesToMenu();
@@ -5658,7 +5699,7 @@
                     DB.products = [...DEFAULT_ATELIER_PRODUCTS];
                     DB.coupons = [...DEFAULT_COUPONS];
                     StoreApp.saveData();
-                    StoreApp.render2ColGrid(DB.products, 'home-2col-grid');
+                    StoreApp.render2ColGrid(DB.products.filter(p => p.showOnHome !== false), 'home-2col-grid');
                     StoreApp.filterSpotlight('all');
                     StoreApp.renderCoverflow();
                     StoreApp.syncCategoriesToMenu();
@@ -5940,8 +5981,44 @@
                             `;
                         });
                     }
+                } else if (tab === 'reels') {
+                    title.innerText = "11. Insta Reels Manager (URL Link)";
+                    actionBtn.style.display = 'block';
+                    actionBtn.innerHTML = "+ Paste Reel URL";
+                    
+                    // ફાઈલ અપલોડ કાઢીને પાછું લિંક વાળું બોક્સ લાવવા 
+                    actionBtn.onclick = () => {
+                        const url = prompt("Paste Instagram Reel URL here (e.g. https://www.instagram.com/reel/XYZ/):");
+                        if(url && url.includes('instagram.com')) {
+                            if(!DB.reels) DB.reels = [];
+                            DB.reels.push(url);
+                            StoreApp.saveData();
+                            StoreApp.renderInstaReels();
+                            this.switchTab('reels');
+                            StoreApp.showToast("Insta Reel URL Added Live!");
+                        } else if(url) {
+                            StoreApp.showToast("⚠️ Please provide a valid Instagram link!");
+                        }
+                    };
+
+                    thead.innerHTML = `<tr><th style="padding:12px;">Instagram URL</th><th>Status</th><th>Action</th></tr>`;
+                    if (!DB.reels || DB.reels.length === 0) {
+                        tbody.innerHTML = '<tr><td colspan="3" style="padding:30px; text-align:center; color:#6b7280;">No reels added. Click "+ Paste Reel URL" above.</td></tr>';
+                    } else {
+                        DB.reels.forEach((r, idx) => {
+                            tbody.innerHTML += `
+                                <tr>
+                                    <td style="padding:12px; font-weight:700; color:var(--accent-red); max-width:250px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"><a href="${r}" target="_blank" style="color:var(--accent-red); text-decoration:underline;">${r}</a></td>
+                                    <td><span style="color:#10b981; font-weight:800;">Live on Homepage</span></td>
+                                    <td><button onclick="DB.reels.splice(${idx}, 1); StoreApp.saveData(); StoreApp.renderInstaReels(); AdminPortal.switchTab('reels');" style="color:#ef4444; font-weight:800; background:none; border:none; cursor:pointer;">Delete</button></td>
+                                </tr>
+                            `;
+                        });
+                    }
                 }
+                
             },
+            
 
             toggleTrendingOffer(idx) {
                 DB.products[idx].isOffer = !DB.products[idx].isOffer;
@@ -6011,61 +6088,20 @@
             closeProductModal() {
                 document.getElementById('product-form-modal')?.classList.remove('active');
             },
-            saveProductForm() {
-                const editId = document.getElementById('prod-edit-id').value;
-                const title = document.getElementById('prod-title').value.trim();
-                const gender = document.getElementById('prod-gender').value;
-                const category = document.getElementById('prod-category').value;
-                const price = parseInt(document.getElementById('prod-price').value) || 2990;
-                const mrp = parseInt(document.getElementById('prod-mrp').value) || 4990;
-                const cost = parseInt(document.getElementById('prod-cost').value) || 1500;
-                const stock = parseInt(document.getElementById('prod-stock').value) || 10;
-                const sizes = document.getElementById('prod-sizes').value.split(',').map(s => s.trim()).filter(Boolean);
-                const desc = document.getElementById('prod-desc').value.trim();
-                const discount = Math.round(((mrp - price) / mrp) * 100);
-
-                if (this.currentImages.length < 2) {
-                    alert("Please provide at least 2 photos for this garment! (Google Drive links are supported).");
-                    return;
-                }
-
-                const images = [...this.currentImages];
-                const img = images[0];
-                const colors = this.currentColors.length > 0 ? [...this.currentColors] : ['#dc2626', '#111827'];
-
-                if (editId) {
-                    const idx = DB.products.findIndex(p => p.id == editId);
-                    if (idx > -1) {
-                        DB.products[idx] = {
-                            ...DB.products[idx],
-                            title, gender, category, price, mrp, costPrice: cost, stock, sizes, img, images, colors, desc, discount
-                        };
-                        StoreApp.showToast("Garment Updated Live!");
-                    }
-                } else {
-                    DB.products.unshift({
-                        id: Date.now(),
-                        sku: 'GC-' + Math.floor(Math.random() * 9000),
-                        title, gender, category, price, mrp, costPrice: cost, stock, sizes, img, images, colors, desc, discount,
-                        brand: gender === 'women' ? 'BRO FASHION COUTURE' : 'BRO FASHION ATELIER',
-                        isOffer: true
-                    });
-                    StoreApp.showToast("New Garment Published Live with Colors & Photos!");
-                }
-
-                StoreApp.saveData();
-                StoreApp.renderCoverflow();
-                StoreApp.render2ColGrid(DB.products, 'home-2col-grid');
-                StoreApp.filterSpotlight('all');
-                this.closeProductModal();
-                this.switchTab('products');
-            },
             deleteProduct(id) {
                 if (confirm("Delete this garment from catalog?")) {
                     DB.products = DB.products.filter(p => p.id !== id);
+
+                    // Sync deletion to Hostinger MySQL
+                    fetch('api.php?action=delete_product', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id })
+                    }).catch(err => console.log('MySQL product delete note:', err));
+
                     StoreApp.saveData();
                     StoreApp.renderCoverflow();
-                    StoreApp.render2ColGrid(DB.products, 'home-2col-grid');
+                    SStoreApp.render2ColGrid(DB.products.filter(p => p.showOnHome !== false), 'home-2col-grid');
                     StoreApp.filterSpotlight('all');
                     this.switchTab('products');
                     StoreApp.showToast("Garment Removed.");
@@ -6112,20 +6148,37 @@
                     return;
                 }
 
+                const couponObj = { code, type, val, min, desc };
+
                 if (editIdx !== '') {
-                    DB.coupons[parseInt(editIdx)] = { code, type, val, min, desc };
+                    DB.coupons[parseInt(editIdx)] = couponObj;
                     StoreApp.showToast(`Coupon ${code} Updated!`);
                 } else {
-                    DB.coupons.push({ code, type, val, min, desc });
+                    DB.coupons.push(couponObj);
                     StoreApp.showToast(`Coupon ${code} Created & Activated!`);
                 }
+
+                // Sync coupon to Hostinger MySQL
+                fetch('api.php?action=save_coupon', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(couponObj)
+                }).catch(err => console.log('MySQL coupon sync note:', err));
 
                 StoreApp.saveData();
                 this.closeCouponModal();
                 this.switchTab('coupons');
             },
             deleteCoupon(idx) {
-                if (confirm(`Delete coupon "${DB.coupons[idx].code}"?`)) {
+                const coup = DB.coupons[idx];
+                if (coup && confirm(`Delete coupon "${coup.code}"?`)) {
+                    // Sync deletion to Hostinger MySQL
+                    fetch('api.php?action=delete_coupon', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ code: coup.code })
+                    }).catch(err => console.log('MySQL coupon delete note:', err));
+
                     DB.coupons.splice(idx, 1);
                     StoreApp.saveData();
                     this.switchTab('coupons');
@@ -6193,19 +6246,30 @@
             },
 
             // --- CATEGORIES MODAL ---
-            openCategoryModal() { document.getElementById('category-form-modal')?.classList.add('active'); },
             closeCategoryModal() { document.getElementById('category-form-modal')?.classList.remove('active'); },
             saveCategoryForm() {
                 const name = document.getElementById('cat-name').value.trim();
                 const dept = document.getElementById('cat-dept').value;
+                
+                // નવો Image કોડ
+                let rawImg = document.getElementById('cat-img').value.trim();
+                const img = convertGoogleDriveLink(rawImg); // ગૂગલ ડ્રાઇવ લિંક ઓટો કન્વર્ટ થશે
+
                 const id = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
-                DB.categories.push({ id, name, dept });
+                DB.categories.push({ id, name, dept, img }); // Image DB માં સેવ થશે
                 StoreApp.saveData();
                 StoreApp.syncCategoriesToMenu();
+                StoreApp.renderCategoriesGrid(); // Home Page તરત જ અપડેટ થશે
+                
                 this.closeCategoryModal();
                 this.switchTab('categories');
-                StoreApp.showToast(`Category "${name}" Added Live to Menu Bar!`);
+                StoreApp.showToast(`Category "${name}" Added Live!`);
+            },
+            openCategoryModal() { 
+                document.getElementById('cat-name').value = '';
+                document.getElementById('cat-img').value = ''; // જુનો ફોટો ક્લિયર થશે
+                document.getElementById('category-form-modal')?.classList.add('active'); 
             },
             deleteCategory(idx) {
                 DB.categories.splice(idx, 1);
@@ -6340,7 +6404,7 @@
                     DB.orders = [];
                     StoreApp.saveData();
                     StoreApp.renderCoverflow();
-                    StoreApp.render2ColGrid(DB.products, 'home-2col-grid');
+                    StoreApp.render2ColGrid(DB.products.filter(p => p.showOnHome !== false), 'home-2col-grid');
                     StoreApp.renderFestivalGrid();
                     StoreApp.filterSpotlight('all');
                     this.switchTab(this.currentTab);
@@ -6351,12 +6415,52 @@
                 DB.products = [...DEFAULT_ATELIER_PRODUCTS];
                 StoreApp.saveData();
                 StoreApp.renderCoverflow();
-                StoreApp.render2ColGrid(DB.products, 'home-2col-grid');
+                StoreApp.render2ColGrid(DB.products.filter(p => p.showOnHome !== false), 'home-2col-grid');
                 StoreApp.renderFestivalGrid();
                 StoreApp.filterSpotlight('all');
                 this.switchTab(this.currentTab);
                 StoreApp.showToast("Sample luxury catalog restored!");
-            }
+            },
+            uploadReelToFirebase(inputElement) {
+                const file = inputElement.files[0];
+                if (!file) return;
+
+                // ખાતરી કરો કે ફાઈલ વિડિઓ જ છે
+                if (!file.type.includes('video')) {
+                    StoreApp.showToast("⚠️ Please select a valid MP4 video file!");
+                    return;
+                }
+
+                StoreApp.showToast("Uploading Reel to Firebase... Please wait ⏳");
+                
+                // Firebase Storage માં ફાઈલ સેવ કરો
+                const storageRef = StoreApp.storage.ref('brofashion_reels/' + Date.now() + '_' + file.name);
+                const uploadTask = storageRef.put(file);
+
+                uploadTask.on('state_changed', 
+                    (snapshot) => {
+                        // તમે અહિયાં અપલોડનું પ્રોગ્રેસ જોઈ શકો છો (console માં)
+                        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        document.getElementById('adm-action-btn').innerHTML = `Uploading... ${Math.round(progress)}%`;
+                    }, 
+                    (error) => {
+                        StoreApp.showToast("⚠️ Upload Failed: " + error.message);
+                        document.getElementById('adm-action-btn').innerHTML = "<i class='fa-solid fa-cloud-arrow-up'></i> Upload MP4 Reel";
+                    }, 
+                    () => {
+                        // અપલોડ પૂરું થાય એટલે ડાયરેક્ટ લિંક મેળવો 
+                        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                            if (!DB.reels) DB.reels = [];
+                            DB.reels.push(downloadURL); // Firebase ની લિંક DB માં નાખો 
+                            StoreApp.saveData(); // લાઈવ ડેટાબેઝમાં સેવ કરો 
+                            StoreApp.renderInstaReels(); // હોમપેજ અપડેટ કરો
+                            AdminPortal.switchTab('reels'); // પોર્ટલ રિફ્રેશ કરો 
+                            StoreApp.showToast("Reel Uploaded & Live on Homepage! 🎬");
+                            inputElement.value = ''; // ઇનપુટ ખાલી કરો 
+                        });
+                    }
+                );
+            }   
         };
         
 
@@ -6369,7 +6473,7 @@
     <!-- GC CLOTHING FLOATING WHATSAPP CHAT BUTTON -->
     <div class="gc-whatsapp-float">
         <span class="gc-whatsapp-pill">Chat with Concierge</span>
-        <a href="https://wa.me/918320884933?text=Hi%20BRO%20FASHION,%20I%20have%20an%20inquiry%20regarding%20the%20collection" target="_blank" class="gc-whatsapp-btn" title="WhatsApp Concierge">
+        <a href="https://wa.me/919510859808?text=Hi%20BRO%20FASHION,%20I%20have%20an%20inquiry%20regarding%20the%20collection" target="_blank" class="gc-whatsapp-btn" title="WhatsApp Concierge">
             <span class="gc-whatsapp-ping"></span>
             <i class="fa-brands fa-whatsapp"></i>
         </a>
